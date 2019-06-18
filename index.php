@@ -28,19 +28,16 @@
 		<div class="fluid-container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
-		
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-					<a class="navbar-brand" href="index.php">Senshi Matto</a> 
+ 					<a class="navbar-brand" href="index.php">Senshi Matto</a> 
 				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
-						<li><a href="#" data-nav-section="services"><span>Quem Somos</span></a></li>
-						<li><a href="#" data-nav-section="explore"><span>Competições</span></a></li>
+				<div>
+					<ul id="menu" class="nav navbar-nav navbar-right">
+						<li class="active"><a href="index.php"><span>Home</span></a></li>
+						<li><a  href="pages/quemSomos.php"><span>Quem Somos</span></a></li>
+						<li><a href="pages/competicoes.php"><span>Competições</span></a></li>
 						<li><a href="#" data-nav-section="testimony"><span>Filiações</span></a></li>
 						<li><a href="#" data-nav-section="pricing"><span>Ranking</span></a></li>
-						<li><a href="#" data-nav-section="team"><span>Perguntas</span></a></li>
-						<li><a href="#" data-nav-section="blog"><span>Fale Conosco</span></a></li>
+						<li><a href="index.php" data-nav-section="#"><span>Perguntas</span></a></li>
 						<li class="call-to-action"><a class="sign-up" href="#"><span>Entrar</span></a></li>
 						<li class="call-to-action"><a class="log-in" href="#"><span>Registrar</span></a></li>
 					</ul>
@@ -169,7 +166,7 @@
 			</div>
 		</div>
 
-	<section id="fh5co-team" class="fh5co-bg-color" data-section="team">
+	<section id="fh5co-team" class="fh5co-bg-color">
 		<div class="fh5co-team">
 			<div class="container">
 				<div class="row">
@@ -291,38 +288,37 @@
 				</div>
 
 				<div class="col-md-4 to-animate">
-					<h3 class="section-title">Our Address</h3>
+					<h3 class="section-title">Entre em contato</h3>
 					<ul class="contact-info">
-						<li><i class="icon-map-marker"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
-						<li><i class="icon-phone"></i>+ 1235 2355 98</li>
-						<li><i class="icon-envelope"></i><a href="#">info@yoursite.com</a></li>
-						<li><i class="icon-globe2"></i><a href="#">www.yoursite.com</a></li>
+						<li><i class="icon-phone"></i>(35) 9 9999-9999</li>
+						<li><i class="icon-envelope"></i><a href="#">contato@senshimatto.com</a></li>
+						<li><i class="icon-globe2"></i><a href="#">www.senshimatto.com</a></li>
 					</ul>
-					<h3 class="section-title">Connect with Us</h3>
+					<h3 class="section-title">Nossas redes sociais</h3>
 					<ul class="social-media">
 						<li><a href="#" class="facebook"><i class="icon-facebook"></i></a></li>
 						<li><a href="#" class="twitter"><i class="icon-twitter"></i></a></li>
-						<li><a href="#" class="dribbble"><i class="icon-dribbble"></i></a></li>
-						<li><a href="#" class="github"><i class="icon-github-alt"></i></a></li>
+						<li><a href="#" class="dribbble"><i class="icon-instagram"></i></a></li>
+						<li><a href="#" class="dribbble"><i class="icon-youtube"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 to-animate">
-					<h3 class="section-title">Drop us a line</h3>
+					<h3 class="section-title">Fale conosco</h3>
 					<form class="contact-form">
 						<div class="form-group">
 							<label for="name" class="sr-only">Name</label>
-							<input type="name" class="form-control" id="name" placeholder="Name">
+							<input type="name" class="form-control" id="name" placeholder="Nome">
 						</div>
 						<div class="form-group">
 							<label for="email" class="sr-only">Email</label>
-							<input type="email" class="form-control" id="email" placeholder="Email">
+							<input type="email" class="form-control" id="email" placeholder="E-mail">
 						</div>
 						<div class="form-group">
 							<label for="message" class="sr-only">Message</label>
-							<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
+							<textarea class="form-control" id="message" rows="7" placeholder="Mensagem"></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Send Message">
+							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Enviar">
 						</div>
 					</form>
 				</div>

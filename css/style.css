@@ -68,20 +68,20 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   top: 0;
 }
-#fh5co-header .navbar {
+#fh5co-header .menu {
   padding-bottom: 0;
   margin-bottom: 0;
 }
-#fh5co-header #navbar .navbar-right {
+#fh5co-header #menu .navbar-right {
   margin-right: 0;
   text-align: center;
 }
 @media screen and (max-width: 992px) {
-  #fh5co-header #navbar .navbar-right {
+  #fh5co-header #menu .navbar-right {
     padding-bottom: 20px;
   }
 }
-#fh5co-header #navbar li a {
+#fh5co-header #menu li a {
   font-family: "PT Sans", Arial, serif;
   color: rgba(0, 0, 0, 0.5);
   position: relative;
@@ -89,18 +89,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 @media screen and (max-width: 992px) {
-  #fh5co-header #navbar li a {
+  #fh5co-header #menu li a {
     padding-left: 10px !important;
     padding-right: 10px !important;
     font-size: 20px;
   }
 }
-#fh5co-header #navbar li a span {
+#fh5co-header #menu li a span {
   position: relative;
   display: block;
   padding-bottom: 2px;
 }
-#fh5co-header #navbar li a span:before {
+#fh5co-header #menu li a span:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -120,10 +120,10 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;
 }
-#fh5co-header #navbar li a:hover {
+#fh5co-header #menu li a:hover {
   color: #000;
 }
-#fh5co-header #navbar li a:hover span:before {
+#fh5co-header #menu li a:hover span:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   -moz-transform: scaleX(1);
@@ -131,28 +131,28 @@ h1, h2, h3, h4, h5, h6 {
   -o-transform: scaleX(1);
   transform: scaleX(1);
 }
-#fh5co-header #navbar li.active a {
+#fh5co-header #menu li.active a {
   background: transparent;
   background: none;
 }
 @media screen and (max-width: 480px) {
-  #fh5co-header #navbar li.active a {
+  #fh5co-header #menu li.active a {
     color: #FA5555;
   }
 }
-#fh5co-header #navbar li.active a span:before {
+#fh5co-header #meun li.active a span:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
   background-color: #FA5555;
 }
 @media screen and (max-width: 480px) {
-  #fh5co-header #navbar li.active a span:before {
+  #fh5co-header #menu li.active a span:before {
     background-color: transparent;
   }
 }
 @media screen and (max-width: 992px) {
-  #fh5co-header #navbar li.active a {
+  #fh5co-header #menu li.active a {
     background: transparent;
     background: none;
   }
@@ -173,10 +173,10 @@ h1, h2, h3, h4, h5, h6 {
     background: transparent;
   }
 }
-#fh5co-header #navbar li.call-to-action {
+#fh5co-header #menu li.call-to-action {
   margin-left: 5px;
 }
-#fh5co-header #navbar li.call-to-action a {
+#fh5co-header #menu li.call-to-action a {
   padding: 5px 10px 3px 10px;
   margin: 12px 0 0 0px;
   color: #fff;
@@ -185,26 +185,26 @@ h1, h2, h3, h4, h5, h6 {
   -ms-border-radius: 30px;
   border-radius: 30px;
 }
-#fh5co-header #navbar li.call-to-action a:hover {
+#fh5co-header #menu li.call-to-action a:hover {
   background-color: #FA5555;
   color: #fff;
 }
-#fh5co-header #navbar li.call-to-action a span:before {
+#fh5co-header #menu li.call-to-action a span:before {
   background-color: transparent;
 }
-#fh5co-header #navbar li.call-to-action a.sign-up {
+#fh5co-header #menu li.call-to-action a.sign-up {
   border: 2px solid #00ADB5;
   background: #00ADB5;
 }
-#fh5co-header #navbar li.call-to-action a.sign-up:hover {
+#fh5co-header #menu li.call-to-action a.sign-up:hover {
   background: #00ADB5;
   color: #fff;
 }
-#fh5co-header #navbar li.call-to-action a.log-in {
+#fh5co-header #menu li.call-to-action a.log-in {
   border: 2px solid #FA5555;
   background: #FA5555;
 }
-#fh5co-header #navbar li.call-to-action a.log-in:hover {
+#fh5co-header #menu li.call-to-action a.log-in:hover {
   background: #FA5555;
   color: #fff;
 }
