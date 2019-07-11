@@ -1,3 +1,6 @@
+<?php
+	include 'pages/cadastros/popup.php';
+?>
 <!DOCTYPE html>
 	<head>
 	<meta charset="utf-8">
@@ -38,8 +41,10 @@
 						<li><a href="#" data-nav-section="testimony"><span>Filiações</span></a></li>
 						<li><a href="#" data-nav-section="pricing"><span>Ranking</span></a></li>
 						<li><a href="index.php" data-nav-section="#"><span>Perguntas</span></a></li>
-						<li class="call-to-action"><a class="sign-up" href="#"><span>Entrar</span></a></li>
-						<li class="call-to-action"><a class="log-in" href="#"><span>Registrar</span></a></li>
+						<!--<li class="call-to-action"><a class="sign-up" href="#"><span>Entrar</span></a></li>-->
+						<li class="call-to-action"><button type="button" class="btn btn-danger glyphicon glyphicon-plus-sign" style="top: 5px;" data-toggle="modal" data-target="#addEntrar">Entrar</button></li>
+						<!--<li class="call-to-action"><a class="log-in" href="pages/registro.php"><span>Registrar</span></a></li>-->
+						<li class="call-to-action"><button type="button" class="btn btn-primary glyphicon glyphicon-plus-sign" style="top: 5px;" data-toggle="modal" data-target="#addRegistro">Registro</button></li>
 					</ul>
 				</div>
 			</nav>

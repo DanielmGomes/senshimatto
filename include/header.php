@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +40,7 @@
 						<li><a href="#" data-nav-section="pricing"><span>Ranking</span></a></li>
 						<li><a href="index.php" data-nav-section="#"><span>Perguntas</span></a></li>
 						<li class="call-to-action"><a class="sign-up" href="#"><span>Entrar</span></a></li>
-						<li class="call-to-action"><a class="log-in" href="#"><span>Registrar</span></a></li>
+						<li class="call-to-action"><a class="log-in" href="../pages/registro.php"><span>Registrar</span></a></li>
 					</ul>
 				</div>
 			</nav>
