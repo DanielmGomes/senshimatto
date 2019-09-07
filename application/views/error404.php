@@ -29,13 +29,21 @@
 
 	<div id="notfound">
 		<div class="notfound">
-            <div class="notfound-404">
-                <h1>:(</h1>
-            </div>
-            
-			<h2>404 - Pagina Não Encontrada</h2>
-			<p>Desculpe pelo transtorno, site em desenvolvimento aguarde pelas proximas atualizações.</p>
-			<a href="<?php echo site_url('home'); ?>">Inicio</a>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="notfound-404">
+						<h2 style="color: #00dee8; ">:(</h2>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<h2>404 - Pagina Não Encontrada</h2>
+					<p>Desculpe pelo transtorno, site em desenvolvimento aguarde pelas proximas atualizações.</p>
+					<a href="<?php echo site_url('home'); ?>">Inicio</a>
+				</div>
+			</div>
+
+
             
         </div>
 	</div>

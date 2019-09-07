@@ -6,6 +6,7 @@
         public function __construct(){
             parent::__construct();
             $this->load->library('session');
+
         }
 
         public function ajax_import_img()
@@ -77,18 +78,27 @@
 
         public function cadastro_competicao(){
             if ($this->session->userdata('idUsuario')) {
-                $idUsuario = $this->session->userdata('idUsuario');
-                $idCompeticao = $this->input->post('idCompeticao');
 
+            	/*
+                 * carregar models
+				*/
                 $this->load->model('competicao_model');
                 $this->load->model('usuario_model');
                 $this->load->model('competicao_model');
-                
-                $data = $this->usuario_model->get_data($idUsuario)->result_array()[0];
+				/*
+				 * //carregar models
+				 */
+
+				$idUsuario = $this->session->userdata('idUsuario');
+				$idCompeticao = 1;
+				#$idCompeticao = $this->input->post('idCompeticao');
+
+				$data = $this->usuario_model->get_data($idUsuario)->result_array()[0];
                 $competicao = $this->competicao_model->get_data($idCompeticao)->result_array()[0];
+				$lista = $this->competicao_model->lista_academia();
 
                 /*
-                **calcular data do nascimento do competidor
+                *calcular idade do competidor
                 */
                 $dia = date('d');
                 $mes = date('m');
@@ -100,27 +110,33 @@
                 $dia_nascimento = $nascimento[2];
                 $idade = $ano_atual - $ano_nascimento;
                 /*
-                **
+                * //calcular idade do competidor
                 */
 
+                /*
+                 * verifica categoria do competidor
+                 */
                 if ($data['sexo'] == 'masculino') {
-                    echo 'sexo masculino';
                     if ($idade <= 10) {
-                        echo 'masculino mirim';
                         if ($data['peso'] <= 22) {
-                            echo 'pluma';
+                            $categoria_idade = 'mirm';
+                            $categoria_peso = 'pluma';
                         }else {
                             if ($data['peso'] > 22 and $data['peso'] <= 26) {
-                                echo 'leve';
+								$categoria_idade = 'mirm';
+								$categoria_peso = 'leve';
                             }else {
                                 if ($data['peso'] > 26 and $data['peso'] <= 30) {
-                                    echo 'meio pesado';
+									$categoria_idade = 'mirm';
+									$categoria_peso = 'meio pesado';
                                 }else {
                                     if ($data['peso'] > 30 and $data['peso'] <= 34) {
-                                        echo 'super pesado';
+										$categoria_idade = 'mirm';
+										$categoria_peso = 'super pesado';
                                     }else {
                                         if ($data['peso'] > 36) {
-                                            echo 'pesadissimo';
+											$categoria_idade = 'mirm';
+											$categoria_peso = 'pesadissimo';
                                         }
                                     }
                                 }
@@ -128,33 +144,41 @@
                         }
                     }else {
                         if ($idade > 10 and $idade <= 18 ) {
-                            echo 'masculino juvenil';
                             if ($data['peso'] <= 53.50) {
-                                echo 'galo';
+								$categoria_idade = 'juvenil';
+								$categoria_peso = 'galo';
                             }else {
                                 if ($data['peso'] > 53.50 and $data['peso'] <= 58.50) {
-                                    echo 'pluma';
+									$categoria_idade = 'juvenil';
+									$categoria_peso = 'pluma';
                                 }else {
                                     if ($data['peso'] > 58.50 and $data['peso'] <= 64) {
-                                        echo 'pena';
+										$categoria_idade = 'juvenil';
+										$categoria_peso = 'pena';
                                     }else {
                                         if ($data['peso'] > 64 and $data['peso'] <= 69) {
-                                            echo 'leve';
+											$categoria_idade = 'juvenil';
+											$categoria_peso = 'leve';
                                         }else {
                                             if ($data['peso'] > 69 and $data['peso'] <= 74) {
-                                                echo 'medio';
+												$categoria_idade = 'juvenil';
+												$categoria_peso = 'leve';
                                             }else {
                                                 if ($data['peso'] > 74 and $data['peso'] <= 79.30) {
-                                                    echo 'meio pesado';
+													$categoria_idade = 'juvenil';
+													$categoria_peso = 'meio pesado';
                                                 }else {
                                                     if ($data['peso'] > 79.30 and $data['peso'] <= 84.30) {
-                                                        echo 'pesado';
+														$categoria_idade = 'juvenil';
+														$categoria_peso = 'pesado';
                                                     }else {
                                                         if ($data['peso'] > 84.30 and $data['peso'] <= 89.30) {
-                                                            echo 'super pesado';
+															$categoria_idade = 'juvenil';
+															$categoria_peso = 'super pesado';
                                                         }else {
                                                             if ($data['peso'] > 89.30) {
-                                                                echo 'pesadissimo';
+																$categoria_idade = 'juvenil';
+																$categoria_peso = 'pesadissimo';
                                                             }
                                                         }
                                                     }
@@ -166,33 +190,41 @@
                             }
                         }else {
                             if ($idade > 18 and $idade <= 30) {
-                                echo 'masculino adulto';
                                 if ($data['peso'] <= 57.50) {
-                                    echo 'galo';
+									$categoria_idade = 'adulto';
+									$categoria_peso = 'galo';
                                 }else {
                                     if ($data['peso'] > 57.50 and $data['peso'] <= 64) {
-                                        echo 'pluma';
+										$categoria_idade = 'adulto';
+										$categoria_peso = 'pluma';
                                     }else {
                                         if ($data['peso'] > 64 and $data['peso'] <= 70) {
-                                            echo 'pena';
+											$categoria_idade = 'adulto';
+											$categoria_peso = 'pena';
                                         }else {
                                             if ($data['peso'] > 70 and $data['peso'] <= 76) {
-                                                echo 'leve';
+												$categoria_idade = 'adulto';
+												$categoria_peso = 'leve';
                                             }else {
                                                 if ($data['peso'] > 76 and $data['peso'] <= 82.30) {
-                                                    echo 'medio';
+													$categoria_idade = 'adulto';
+													$categoria_peso = 'medio';
                                                 }else {
                                                     if ($data['peso'] > 82.30 and $data['peso'] <= 88.30) {
-                                                        echo 'meio pesado';
+														$categoria_idade = 'adulto';
+														$categoria_peso = 'meio pesado';
                                                     }else {
                                                         if ($data['peso'] > 88.30 and $data['peso'] <= 94.30) {
-                                                            echo 'pesado';
+															$categoria_idade = 'adulto';
+															$categoria_peso = 'pesado';
                                                         }else {
                                                             if ($data['peso'] > 94.30 and $data['peso'] <= 100.50) {
-                                                                echo 'super pesado';
+																$categoria_idade = 'adulto';
+																$categoria_peso = 'super pesado';
                                                             }else {
                                                                 if ($data['peso'] > 100.50) {
-                                                                    $categoria = 'pesadissimo';
+																	$categoria_idade = 'adulto';
+																	$categoria_peso = 'pesadissimo';
                                                                 }
                                                             }
                                                         }
@@ -206,31 +238,40 @@
                                 if ($idade > 30) {
                                     echo 'masculino senior';
                                     if ($data['peso'] <= 57.50) {
-                                        echo 'galo';
+										$categoria_idade = 'senior';
+										$categoria_peso = 'galo';
                                     }else {
                                         if ($data['peso'] > 57.50 and $data['peso'] <= 64) {
-                                            echo 'pluma';
+											$categoria_idade = 'senior';
+											$categoria_peso = 'pluma';
                                         }else {
                                             if ($data['peso'] > 64 and $data['peso'] <= 70) {
-                                                echo 'pena';
+												$categoria_idade = 'senior';
+												$categoria_peso = 'pena';
                                             }else {
                                                 if ($data['peso'] > 70 and $data['peso'] <= 76) {
-                                                    echo 'leve';
+													$categoria_idade = 'senior';
+													$categoria_peso = 'leve';
                                                 }else {
                                                     if ($data['peso'] > 76 and $data['peso'] <= 82.30) {
-                                                        echo 'medio';
+														$categoria_idade = 'senior';
+														$categoria_peso = 'medio';
                                                     }else {
                                                         if ($data['peso'] > 82.30 and $data['peso'] <= 88.30) {
-                                                            echo 'meio pesado';
+															$categoria_idade = 'senior';
+															$categoria_peso = 'meio pesado';
                                                         }else {
                                                             if ($data['peso'] > 88.30 and $data['peso'] <= 94.30) {
-                                                                echo 'pesado';
+																$categoria_idade = 'senior';
+																$categoria_peso = 'pesado';
                                                             }else {
                                                                 if ($data['peso'] > 94.30 and $data['peso'] <= 100.50) {
-                                                                    echo 'super pesado';
+																	$categoria_idade = 'senior';
+																	$categoria_peso = 'super pesado';
                                                                 }else {
                                                                     if ($data['peso'] > 100.50) {
-                                                                        echo 'pesadissimo';
+																		$categoria_idade = 'senior';
+																		$categoria_peso = 'pesadissimo';
                                                                     }
                                                                 }
                                                             }
@@ -246,22 +287,26 @@
                     }
                 }else {
                     echo 'sexo feminino';
-                    if ($idade <= 6) {
-                        echo 'feminino mirim';
+                    if ($idade <= 10) {
                         if ($data['peso'] <= 20) {
-                            echo 'pluma';
+							$categoria_idade = 'mirim';
+							$categoria_peso = 'pluma';
                         }else {
                             if ($data['peso'] > 20 and $data['peso'] <= 24) {
-                                echo 'leve';
+								$categoria_idade = 'mirim';
+								$categoria_peso = 'leve';
                             }else {
                                 if ($data['peso'] > 24 and $data['peso'] <= 28) {
-                                    echo 'meio pesado';
+									$categoria_idade = 'mirim';
+									$categoria_peso = 'meio pesado';
                                 }else {
                                     if ($data['peso'] > 28 and $data['peso'] <= 32) {
-                                        echo 'super pesado';
+										$categoria_idade = 'mirim';
+										$categoria_peso = 'super pesado';
                                     }else {
-                                        if ($data['peso'] > 32 and $data['peso'] <= 36) {
-                                            echo 'pesadissimo';
+                                        if ($data['peso'] > 36) {
+											$categoria_idade = 'mirim';
+											$categoria_peso = 'pesadissimo';
                                         }
                                     }
                                 }
@@ -269,33 +314,42 @@
                         }
                     }else {
                         if ($idade > 10 and $idade <= 18 ) {
-                            echo 'feminino juvenil';
                             if ($data['peso'] <= 44.30) {
-                                echo 'galo';
+								$categoria_idade = 'juvenil';
+								$categoria_peso = 'galo';
                             }else {
                                 if ($data['peso'] > 44.30 and $data['peso'] <= 48.30) {
-                                    echo 'pluma';
+									$categoria_idade = 'juvenil';
+									$categoria_peso = 'pluma';
                                 }else {
                                     if ($data['peso'] > 48.30 and $data['peso'] <= 52.50) {
                                         echo 'pena';
+										$categoria_idade = 'juvenil';
+										$categoria_peso = 'pena';
                                     }else {
                                         if ($data['peso'] > 52.50 and $data['peso'] <= 56.50) {
-                                            echo 'leve';
+											$categoria_idade = 'juvenil';
+											$categoria_peso = 'leve';
                                         }else {
                                             if ($data['peso'] > 56.50 and $data['peso'] <= 60.50) {
-                                                echo 'medio';
+												$categoria_idade = 'juvenil';
+												$categoria_peso = 'medio';
                                             }else {
                                                 if ($data['peso'] > 60.50 and $data['peso'] <= 65) {
-                                                    echo 'meio pesado';
+													$categoria_idade = 'juvenil';
+													$categoria_peso = 'meio pesado';
                                                 }else {
                                                     if ($data['peso'] > 65 and $data['peso'] <= 69) {
-                                                        echo 'pesado';
+														$categoria_idade = 'juvenil';
+														$categoria_peso = 'pesado';
                                                     }else {
                                                         if ($data['peso'] > 69 and $data['peso'] <= 73) {
-                                                            echo 'super pesado';
+															$categoria_idade = 'juvenil';
+															$categoria_peso = 'super pesado';
                                                         }else {
                                                             if ($data['peso'] > 73) {
-                                                                echo 'pesadissimo';
+																$categoria_idade = 'juvenil';
+																$categoria_peso = 'pesadissimo';
                                                             }
                                                         }
                                                     }
@@ -307,33 +361,41 @@
                             }
                         }else {
                             if ($idade > 18 and $idade <= 30) {
-                                echo 'feminino adulto';
                                 if ($data['peso'] <= 48.50) {
-                                    echo 'galo';
+									$categoria_idade = 'adulto';
+									$categoria_peso = 'galo';
                                 }else {
                                     if ($data['peso'] > 48.50 and $data['peso'] <= 53.50) {
-                                        echo 'pluma';
+										$categoria_idade = 'adulto';
+										$categoria_peso = 'pluma';
                                     }else {
                                         if ($data['peso'] > 53.50 and $data['peso'] <= 58.50) {
-                                            echo 'pena';
+											$categoria_idade = 'adulto';
+											$categoria_peso = 'pena';
                                         }else {
                                             if ($data['peso'] > 58.50 and $data['peso'] <= 64) {
-                                                echo 'leve';
+												$categoria_idade = 'adulto';
+												$categoria_peso = 'leve';
                                             }else {
                                                 if ($data['peso'] > 64 and $data['peso'] <= 69) {
-                                                    echo 'medio';
+													$categoria_idade = 'adulto';
+													$categoria_peso = 'medio';
                                                 }else {
                                                     if ($data['peso'] > 69 and $data['peso'] <= 74) {
-                                                        echo 'meio pesado';
+														$categoria_idade = 'adulto';
+														$categoria_peso = 'meio pesado';
                                                     }else {
                                                         if ($data['peso'] > 74 and $data['peso'] <= 79.30) {
-                                                            echo 'pesado';
+															$categoria_idade = 'adulto';
+															$categoria_peso = 'pesado';
                                                         }else {
                                                             if ($data['peso'] > 79.30 and $data['peso'] <= 84.30) {
-                                                                echo 'super pesado';
+																$categoria_idade = 'adulto';
+																$categoria_peso = 'super pesado';
                                                             }else {
                                                                 if ($data['peso'] > 84.30) {
-                                                                    echo 'pesadissimo';
+																	$categoria_idade = 'adulto';
+																	$categoria_peso = 'pesadissimo';
                                                                 }
                                                             }
                                                         }
@@ -345,33 +407,43 @@
                                 }
                             }else {
                                 if ($idade > 30) {
-                                    echo 'feminino senior';
                                     if ($data['peso'] <= 48.50) {
-                                        echo 'galo';
+										$categoria_idade = 'senior';
+										$categoria_peso = 'galo';
                                     }else {
                                         if ($data['peso'] > 48.50 and $data['peso'] <= 53.50) {
-                                            echo 'pluma';
+											$categoria_idade = 'senior';
+											$categoria_peso = 'pluma';
                                         }else {
                                             if ($data['peso'] > 53.50 and $data['peso'] <= 58.50) {
-                                                echo 'pena';
+												$categoria_idade = 'senior';
+												$categoria_peso = 'pena';
                                             }else {
                                                 if ($data['peso'] > 58.50 and $data['peso'] <= 64) {
-                                                    echo 'leve';
+													$categoria_idade = 'senior';
+													$categoria_peso = 'leve';
                                                 }else {
                                                     if ($data['peso'] > 64 and $data['peso'] <= 69) {
-                                                        echo 'medio';
+														$categoria_idade = 'senior';
+														$categoria_peso = 'medio';
                                                     }else {
                                                         if ($data['peso'] > 69 and $data['peso'] <= 74) {
-                                                            echo 'meio pesado';
+															$categoria_idade = 'senior';
+															$categoria_peso = 'meio pesado';
                                                         }else {
                                                             if ($data['peso'] > 74 and $data['peso'] <= 79.30) {
                                                                 echo 'pesado';
+																$categoria_idade = 'senior';
+																$categoria_peso = 'pesado';
                                                             }else {
                                                                 if ($data['peso'] > 79.30 and $data['peso'] <= 84.30) {
                                                                     echo 'super pesado';
+																	$categoria_idade = 'senior';
+																	$categoria_peso = 'super pesado';
                                                                 }else {
                                                                     if ($data['peso'] > 84.30) {
-                                                                        echo 'pesadissimo';
+																		$categoria_idade = 'senior';
+																		$categoria_peso = 'pesadissimo';
                                                                     }
                                                                 }
                                                             }
@@ -386,9 +458,17 @@
                         }
                     }
                 }
+                /*
+                 * //verifica categoria do competidor
+                 */
 
-                #$data = $this->competicao_model->lista_academia();
+                /*
+                 * carregar dados para view
+                 */
                 $dados = array(
+                	/*
+                	 * dados do usuario
+                	 */
                     'idUsuario' => $data['idUsuario'],
                     'nome' => $data['nome'],
                     'nascimento' => $data['nascimento'],
@@ -404,8 +484,16 @@
                     'bairro' => $data['bairro'],
                     'estado' => $data['estado'],
                     'cidade' => $data['cidade'],
-                    'categoria' => $categoria,
+                    'categoria_idade' => $categoria_idade,
+                    'categoria_peso' => $categoria_peso,
                     'idade' => $idade,
+                    'lista_academia' => $lista,
+                    /*
+                     * //dados do usuario
+                     */
+                    /*
+                     * dados da competição
+                     */
                     'idCompeticao' => $competicao['idCompeticao'],
                     'nomeCompeticao' => $competicao['nomeEvento'],
                     'enderecoCompeticao' => $competicao['endereco'],
@@ -414,13 +502,20 @@
                     'dataCompeticao' => $competicao['data'],
                     'descricaoCompeticao' => $competicao['descricao'],
                     'cartazCompeticao' => $competicao['cartaz'],
+					/*
+					 * //dados da competição
+					*/
                 );
-                                
+
                 $this->load->view('usuarios/template/header');
                 $this->load->view('usuarios/cadastros/competicao', $dados);
                 $this->load->view('template/footer');
                 $this->load->view('template/scripts');  
-                
+                /*
+                 * //carregar dados para view
+                 */
+
+
             }else {
                 $this->load->view('template/header');
                 $this->load->view('login');
@@ -429,8 +524,27 @@
             }
         }
 
+		public function edita_inscricao(){
+			$idUsuario = $this->session->userdata('idUsuario');
+			$data = array(
+				'nome' => $this->input->post('nome'),
+				'nascimento' => $this->input->post('nascimento'),
+				'cpf' => $this->input->post('cpf'),
+				'sexo' => $this->input->post('sexo'),
+				'academia' => $this->input->post('academia'),
+				'professor' => $this->input->post('professor'),
+				'faixa' => $this->input->post('faixa'),
+				'peso' => $this->input->post('peso'),
+			);
+
+			$this->load->model('usuario_model');
+			$this->usuario_model->update($idUsuario, $data);
+			$this->cadastro_competicao();
+		}
+
         public function cidades(){
             $this->load->view('cidades');
         }
+
     }
 ?>

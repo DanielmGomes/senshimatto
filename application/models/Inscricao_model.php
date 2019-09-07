@@ -69,5 +69,14 @@
             return $this->db->get('inscricao')->result_array();
         }
 
+		public function listaInscricao($idCompetidor, $select = NULL){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('inscricao');
+			$this->db->where('idCompetidor', $idCompetidor);
+			return $this->db->get()->num_rows() > 0;
+		}
+
     }
 ?>

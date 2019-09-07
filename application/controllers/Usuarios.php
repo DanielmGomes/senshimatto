@@ -65,7 +65,11 @@
 					$json['status'] = 0;
 				}
 				if ($json['status'] == 0) {
-					$json['error_list']['#btn_login'] = 'usuario ou senha incorretos';
+					$_SESSION['nao_autenticado'] = true;
+					$this->load->view('template/header');
+					$this->load->view('login');
+					$this->load->view('template/footer');
+					$this->load->view('template/scripts');
 				}
 			}
 	
@@ -95,19 +99,53 @@
 				'sexo' => $this->input->post('sexo'),
 				'whatsapp' => $this->input->post('whatsapp'),
 				'email' => $this->input->post('email'),
+				'endereco' => $this->input->post('endereco'),
+				'bairro' => $this->input->post('bairro'),
+				'estado' => $this->input->post('estado'),
+				'cidade' => $this->input->post('cidade'),
 				'academia' => $this->input->post('academia'),
 				'professor' => $this->input->post('professor'),
-				'usuario' => $this->input->post('usuario'),				
+				'faixa' => $this->input->post('faixa'),
+				'peso' => $this->input->post('peso'),
+				'usuario' => $this->input->post('usuario'),
 				'senha' => sha1($this->input->post('senha'))
 			);
-			
-			$this->usuario_model->insert($data);
 
-			$this->load->view('template/header');
-			$this->load->view('login');
-			$this->load->view('template/footer');
-			$this->load->view('template/scripts');
+			$usuario = $data['usuario'];
 
+			$duplicado = $this->usuario_model->lista_usuario($usuario);
+
+			if ($duplicado == 1){
+				$_SESSION['duplicado'] = true;
+				$this->load->view('template/header');
+				$this->load->view('cadastroUsuario');
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+			}else{
+				$this->usuario_model->insert($data);
+				$this->load->view('template/header');
+				$this->load->view('login');
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+			}
+
+
+
+			/*
+				if ($ == $data['nome']) {
+					$_SESSION['nome_duplicado'] = true;
+					$this->load->view('template/header');
+					$this->load->view('cadastroUsuario');
+					$this->load->view('template/footer');
+					$this->load->view('template/scripts');
+				}else {
+					$this->usuario_model->insert($data);
+					$this->load->view('template/header');
+					$this->load->view('cadastroUsuario');
+					$this->load->view('template/footer');
+					$this->load->view('template/scripts');
+				}
+				*/
 			/*
 			if ($this->usuario_model->is_duplicated('usuario', $data['usuario'], $data['idUsuario'])) {
 				$json['error_list']['#usuario'] = 'usuario já cadastrado';
@@ -186,6 +224,10 @@
 
 			$this->load->model('usuario_model');
 			$this->usuario_model->update($idUsuario, $data);
+			$this->load->view('usuarios/template/header');
+			$this->load->view('home');
+			$this->load->view('template/footer');
+			$this->load->view('template/scripts');
 		}
 
 	}

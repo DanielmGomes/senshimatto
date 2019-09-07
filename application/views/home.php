@@ -13,6 +13,7 @@
 		</div>
 	</div>
 </section>
+
 <section id="fh5co-services" data-section="services">
 	<div class="fh5co-services">
 		<div class="container">
@@ -63,7 +64,7 @@
 							<p>GP em todas as faixas, lutas casadas adultos.</p>
 							<form action="<?php echo site_url('competicao/cadastro_competicao'); ?>" method="post">
 								<input type="text" name="idCompeticao" value='1' hidden>
-								<button type="submit" class="btn btn-success">Inscrever-se</button>
+								<button type="submit" class="btn btn-success" value="enviar" name="enviar">Inscrever-se</button>
 							</form>						
 						</div>
 					</div>
@@ -86,7 +87,7 @@
 							<br>
 							<h3>Desafio BJJ</h3>
 							<p>Desafio BJJ, Minas Gerais x São Paulo.</p>
-							<button type="button" class="btn btn-success">Inscrever-se</button>	
+							<button type="button" class="btn btn-success">Inscrever-se</button>
 						</div>
 					</div>
 					<!--

@@ -39,8 +39,6 @@ class Home extends CI_Controller {
 		$lista = $this->competicao_model->lista_academia();
 		$dados = array(
 			'academia' => $lista,
-			'options_estado' => $this->estado_model->selectEstado(),
-			'options_municipio' => $this->cidade_model->selectMunicipio()
 		);
 		$this->load->view('template/header');
 		$this->load->view('cadastroUsuario', $dados);
@@ -79,5 +77,4 @@ class Home extends CI_Controller {
 		$this->load->view('template/footer');
 		$this->load->view('template/scripts');
 	}
-
 }

@@ -6,7 +6,24 @@
 					<h2 class="to-animate"><span>Acessar Minha Conta</span></h2>
 				</div>
 			</div>
-  
+
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<?php
+					if(isset($_SESSION['nao_autenticado'])):
+						?>
+						<div class="notification is-danger">
+							<span class="help-block" style="color: red;">ERRO: Usuário ou senha inválidos.</span>
+						</div>
+					<?php
+					endif;
+					unset($_SESSION['nao_autenticado']);
+					?>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+
             <form id="login_form" action="<?php echo site_url('usuarios/login'); ?>" method="post">
 
                 <div class="row">
@@ -35,7 +52,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group"></div>
 
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group">
-                    <button type="submit" class="btn btn-block" id="btn-login" value="enviar">Login</button>
+                    <button type="submit" class="btn btn-block" id="btn-login">Login</button>
                     <span class="help-block"></span>
                 </div>
 

@@ -39,8 +39,6 @@
     <script src="<?php echo base_url(); ?>restrict/js/bootstrap-wysiwyg.min.js"></script>
     <script src="<?php echo base_url(); ?>restrict/js/jquery.hotkeys.js"></script>
     <script src="<?php echo base_url(); ?>restrict/js/prettify.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url(); ?>restrict/js/custom.min.js"></script>
     <!-- jQuery Tags Input -->
     <script src="<?php echo base_url(); ?>restrict/js/jquery.tagsinput.js"></script>
     <!-- Switchery -->
@@ -62,6 +60,24 @@
     <script src="<?php echo base_url(); ?>restrict/js/utils.js"></script>
 
     <script src="<?php echo base_url(); ?>restrict/js/jquery.dataTables.min.js"></script>
+	<!-- Datatables -->
+	<script src="<?= base_url(); ?>restrict/js/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.bootstrap.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.buttons.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/buttons.bootstrap.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/buttons.flash.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/buttons.html5.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/buttons.print.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.fixedHeader.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.keyTable.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.responsive.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/responsive.bootstrap.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/dataTables.scroller.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/jszip.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/pdfmake.min.js"></script>
+	<script src="<?= base_url(); ?>restrict/js/vfs_fonts.js"></script>
 
+	<!-- Custom Theme Scripts -->
+	<script src="<?= base_url(); ?>restrict/js/custom.min.js"></script>
   </body>
 </html>

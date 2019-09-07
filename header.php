@@ -60,7 +60,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem-Vindo,</span>
-				  <h2><?php echo $this->session->userdata('equipe'); ?></h2>
+				  <h2><?php echo #$this->session->userdata('equipe'); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -103,8 +103,8 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo base_url(); ?>restrict/images/user.svg" alt="">
-                    <?php echo $this->session->userdata('equipe'); ?>
+                    <img src="<?php echo #base_url(); ?>restrict/images/user.svg" alt="">
+                    <?php echo #$this->session->userdata('equipe'); ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -116,7 +116,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="<?php echo site_url('admin/logoff'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo #site_url('admin/logoff'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

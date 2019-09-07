@@ -11,29 +11,36 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		if ($this->session->userdata('idEquipe')) {
+
+			$this->load->model('usuario_model');
+
+			$total = $this->usuario_model->total_usuarios();
+			$sexo_masculino = $this->usuario_model->total_usuarios_masculino();
+			$sexo_feminino = $this->usuario_model->total_usuarios_feminino();
+
+			$dados = array(
+				'total' => $total,
+				'sexo_masculino' => $sexo_masculino,
+				'sexo_feminino' => $sexo_feminino,
+			);
+
 			$this->load->view('admin/template/header');
-			$this->load->view('admin/home');
+			$this->load->view('admin/home', $dados);
 			$this->load->view('admin/template/footer');
 			$this->load->view('admin/template/scripts');
 
 		}else {
-			$data = array(
-				"scripts" => array(
-					'util.js',
-					'login.js'
-				)
-			);
-			$this->load->view('admin/login', $data);
+			$this->load->view('admin/login');
 		}
 	}
 
 	public function login()
-	{	
+	{
 		/*
 		if (!$this->input->is_ajax_request) {
 			exit('acesso negado');
 		}
-		*/	
+		*/
 		$json = array();
 		$json["status"] = 1;
 		$json["error_list"] = array();
@@ -51,11 +58,24 @@ class Admin extends CI_Controller {
 				$idEquipe = $result->idEquipe;
 				$equipe = $result->equipe;
 				$senha = $result->senha;
+
+				$this->load->model('usuario_model');
+
+				$total = $this->usuario_model->total_usuarios();
+				$sexo_masculino = $this->usuario_model->total_usuarios_masculino();
+				$sexo_feminino = $this->usuario_model->total_usuarios_feminino();
+
+				$dados = array(
+					'total' => $total,
+					'sexo_masculino' => $sexo_masculino,
+					'sexo_feminino' => $sexo_feminino,
+				);
+
 				if (md5('$password') == $senha) {
 					$this->session->set_userdata("idEquipe", $idEquipe);
 					$this->session->set_userdata('equipe', $equipe);
 					$this->load->view('admin/template/header');
-					$this->load->view('admin/home');
+					$this->load->view('admin/home', $dados);
 					$this->load->view('admin/template/footer');
 					$this->load->view('admin/template/scripts');
 				}else {
@@ -233,6 +253,13 @@ class Admin extends CI_Controller {
 		$dados = array(
 			'inscricao' => $lista,
 		);
+		$this->load->view('admin/template/header');
 		$this->load->view('admin/relatorios/inscricoes', $dados);
+		$this->load->view('admin/template/footer');
+		$this->load->view('admin/template/scripts');
+	}
+
+	public function not_found(){
+		$this->load->view('error404');
 	}
 }

@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-md-5 col-sm-6 col-xs-12 form-group">
 						<label for="">Nome Completo</label>
-						<input type="text" class="form-control" name="nome" maxlength="60" required="">
+						<input type="text" class="form-control" name="nome" maxlength="60" >
 					</div>	
 
 					<div class="col-md-1"></div>
@@ -44,14 +44,14 @@
 				<div class="row">
 					<div class="col-md-5 col-sm-6 col-xs-12 form-group">
 						<label for="">Whatsapp</label>
-						<input type="text" class="celular form-control" id="celular" name="whatsapp" required="">		      
+						<input type="text" class="celular form-control" id="celular" name="whatsapp" >
 					</div>	
 
 					<div class="col-md-1"></div>
 
 					<div class="col-md-5 col-sm-6 col-xs-12 form-group">
 						<label for="">E-mail</label>
-						<input type="email" class="form-control" name="email" maxlength="60" required="">
+						<input type="email" class="form-control" name="email" maxlength="60" >
 					</div>			
 				</div>
 
@@ -121,11 +121,11 @@
 						<br>
 						<select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" name="academia">
 							<option value="">Selecione a Academia</option>
-							<!--
+							
 							<?php foreach ($academia as $academias) : ?>
 								<option value="<?= $academias['academia']; ?>"><?= $academias['academia']; ?></option>
 							<?php endforeach ?>
-							--> 
+							
 						</select>
 					</div>
 
@@ -136,11 +136,11 @@
 						<br>
 						<select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" name="professor">
 							<option value="">Selecione o Professor</option>
-							<!--
+							
 							<?php foreach ($academia as $academias) : ?>
 								<option value="<?= $academias['responsavel']; ?>"><?= $academias['responsavel']; ?></option>
 							<?php endforeach ?> 
-							-->
+							
 						</select>
 					</div>						
 				</div>
@@ -164,13 +164,26 @@
 
 					<div class="col-md-1"></div>
 
-					<div class="col-md-5 col-sm-6 col-xs-12 form-group"></div>
+					<div class="col-md-5 col-sm-6 col-xs-12 form-group">
+						<label for="">Peso</label>
+						<input type="text" class="peso form-control" id="peso" name="peso">
+					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-5 col-sm-6 col-xs-12 form-group">
 						<label for="">Usuario</label>
-						<input type="text" class="form-control" name="usuario" maxlength="60" required="">
+						<input type="text" class="form-control" name="usuario" maxlength="60" >
+						<?php
+						if(isset($_SESSION['duplicado'])):
+							?>
+							<div class="notification is-danger">
+								<span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
+							</div>
+						<?php
+						endif;
+						unset($_SESSION['duplicado']);
+						?>
 					</div>	
 
 					<div class="col-md-1"></div>
@@ -191,7 +204,7 @@
 						</div>
 					</div>
 				</div>     
-      		</form>	
+      		</form>
 		</div>
 	</div>
 </section>

@@ -39,6 +39,12 @@
 			return $this->db->get();
 		}
 
+		public function duplicado($usuario){
+			$this->db->from('usuario');
+			$this->db->where('nome', $usuario);
+			return $this->db->get()->result_array();
+		}
+
 		public function insert($data){
 			$this->db->insert('usuario', $data);
 		}
@@ -61,5 +67,37 @@
 			$this->db->where($field, $value);
 			return $this->db->get()->num_rows() > 0;
 		}
+
+		public function lista_usuario($usuario, $select = NULL){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('usuario');
+			$this->db->where('usuario', $usuario);
+			return $this->db->get()->num_rows() > 0;
+		}
+
+		public function total_usuarios(){
+			return $this->db->get('usuario')->num_rows();
+		}
+
+		public function total_usuarios_masculino($select = NULL){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('usuario');
+			$this->db->where('sexo', 'masculino');
+			return $this->db->get()->num_rows() ;
+		}
+
+		public function total_usuarios_feminino($select = NULL){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('usuario');
+			$this->db->where('sexo', 'feminino');
+			return $this->db->get()->num_rows() ;
+		}
+
 	}
 ?>
