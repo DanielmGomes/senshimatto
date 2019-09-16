@@ -116,6 +116,931 @@
                 /*
                  * verifica categoria do competidor
                  */
+
+				if ($data['sexo'] == 'masculino'){
+					#sexo masculino
+					if ($idade <= 5){
+						#pre-mirim
+						if ($data['peso '] <= 17){
+							$categoria_idade = 'pre-mirim';
+							$categoria_peso = 'galo';
+						}else{
+							if ($data['peso'] > 17 and $data['peso'] <= 19){
+								$categoria_idade ='pre-mirim';
+								$categoria_peso = 'pluma';
+							}else{
+								if ($data['peso'] > 19 and $data['peso'] <= 22){
+									$categoria_idade = 'pre-mirim';
+									$categoria_peso = 'pena';
+								}else{
+									if ($data['peso'] > 22 and data['peso'] <= 25){
+										$categoria_idade = 'pre-mirim';
+										$categoria_peso = 'leve';
+									}else{
+										if ($data['peso'] > 25 and $data['peso'] <= 28.3){
+											$categoria_idade = 'pre-mirim';
+											$categoria_peso = 'medio';
+										}else{
+											if ($data['peso'] > 28.3 and $data['peso'] <= 31.3){
+												$categoria_idade = 'pre-mirim';
+												$categoria_peso = 'meio-pesado';
+											}else{
+												if (data['peso'] > 31.3 and $data['peso'] <= 34.5){
+													$categoria_idade = 'pre-mirim';
+													$categoria_peso = 'pesado';
+												}else{
+													if ($data['peso'] > 34.5 and $data['peso'] <= 37.5){
+														$categoria_idade = 'pre-mirim';
+														$categoria_peso = 'superpesado';
+													}else{
+														if ($data['peso'] < 37.5 and $data['peso'] <= 42.5){
+															$categoria_idade = 'pre-mirim';
+															$categoria_peso = 'pesadissimo';
+														}else{
+															if ($data['peso'] > 42.5){
+																$categoria_idade = 'pre-mirim';
+																$categoria_peso = 'extra pesadissimo';
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}else{
+						if ($idade < 5 and $idade <= 7 ){
+							#mirim
+							if ($data['peso '] < 18){
+								$categoria_idade = 'mirim';
+								$categoria_peso = 'galo';
+							}else{
+								if ($data['peso'] > 18 and $data['peso'] <= 20){
+									$categoria_idade ='mirim';
+									$categoria_peso = 'pluma';
+								}else{
+									if ($data['peso'] > 20 and $data['peso'] <= 23){
+										$categoria_idade = 'mirim';
+										$categoria_peso = 'pena';
+									}else{
+										if ($data['peso'] > 23 and data['peso'] <= 26){
+											$categoria_idade = 'mirim';
+											$categoria_peso = 'leve';
+										}else{
+											if ($data['peso'] > 26 and $data['peso'] <= 29.3){
+												$categoria_idade = 'mirim';
+												$categoria_peso = 'medio';
+											}else{
+												if ($data['peso'] > 29.3 and $data['peso'] <= 32.3){
+													$categoria_idade = 'mirim';
+													$categoria_peso = 'meio-pesado';
+												}else{
+													if (data['peso'] > 32.3 and $data['peso'] <= 35.5){
+														$categoria_idade = 'mirim';
+														$categoria_peso = 'pesado';
+													}else{
+														if ($data['peso'] > 35.5 and $data['peso'] <= 38.5){
+															$categoria_idade = 'mirim';
+															$categoria_peso = 'superpesado';
+														}else{
+															if ($data['peso'] < 38.5 and $data['peso'] <= 44){
+																$categoria_idade = 'mirim';
+																$categoria_peso = 'pesadissimo';
+															}else{
+																if ($data['peso'] > 44){
+																	$categoria_idade = 'mirim';
+																	$categoria_peso = 'extra pesadissimo';
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}else{
+							if ($idade < 7 and idade <= 9){
+								#infantil A
+								if ($data['peso '] < 23){
+									$categoria_idade = 'infantil A';
+									$categoria_peso = 'galo';
+								}else{
+									if ($data['peso'] > 23 and $data['peso'] <= 26){
+										$categoria_idade = 'infantil A';
+										$categoria_peso = 'pluma';
+									}else{
+										if ($data['peso'] > 26 and $data['peso'] <= 29.3){
+											$categoria_idade = 'infantil A';
+											$categoria_peso = 'pena';
+										}else{
+											if ($data['peso'] > 29.3 and data['peso'] <= 32.3){
+												$categoria_idade = 'infantil A';
+												$categoria_peso = 'leve';
+											}else{
+												if ($data['peso'] > 32.3 and $data['peso'] <= 35.5){
+													$categoria_idade = 'infantil A';
+													$categoria_peso = 'medio';
+												}else{
+													if ($data['peso'] > 35.5 and $data['peso'] <= 38.5){
+														$categoria_idade = 'infantil A';
+														$categoria_peso = 'meio-pesado';
+													}else{
+														if (data['peso'] > 38.5 and $data['peso'] <= 41.7){
+															$categoria_idade = 'infantil A';
+															$categoria_peso = 'pesado';
+														}else{
+															if ($data['peso'] > 41.7 and $data['peso'] <= 44.7){
+																$categoria_idade = 'infantil A';
+																$categoria_peso = 'superpesado';
+															}else{
+																if ($data['peso'] < 44.7 and $data['peso'] <= 50){
+																	$categoria_idade = 'infantil A';
+																	$categoria_peso = 'pesadissimo';
+																}else{
+																	if ($data['peso'] > 50){
+																		$categoria_idade = 'infantil A';
+																		$categoria_peso = 'extra pesadissimo';
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}else{
+								if ($idade > 9 and $idade <= 11){
+									#infantil B
+									if ($data['peso '] <= 29.3){
+										$categoria_idade = 'infantil B';
+										$categoria_peso = 'galo';
+									}else{
+										if ($data['peso'] > 29.3 and $data['peso'] <= 32.3){
+											$categoria_idade = 'infantil B';
+											$categoria_peso = 'pluma';
+										}else{
+											if ($data['peso'] > 32.3 and $data['peso'] <= 35.5){
+												$categoria_idade = 'infantil B';
+												$categoria_peso = 'pena';
+											}else{
+												if ($data['peso'] > 35.5 and data['peso'] <= 38.5){
+													$categoria_idade = 'infantil B';
+													$categoria_peso = 'leve';
+												}else{
+													if ($data['peso'] > 38.5 and $data['peso'] <= 41.7){
+														$categoria_idade = 'infantil B';
+														$categoria_peso = 'medio';
+													}else{
+														if ($data['peso'] > 41.7 and $data['peso'] <= 44.7){
+															$categoria_idade = 'infantil B';
+															$categoria_peso = 'meio-pesado';
+														}else{
+															if (data['peso'] > 44.7 and $data['peso'] <= 47.7){
+																$categoria_idade = 'infantil B';
+																$categoria_peso = 'pesado';
+															}else{
+																if ($data['peso'] > 47.7 and $data['peso'] <= 51){
+																	$categoria_idade = 'infantil B';
+																	$categoria_peso = 'superpesado';
+																}else{
+																	if ($data['peso'] < 51 and $data['peso'] <= 55){
+																		$categoria_idade = 'infantil B';
+																		$categoria_peso = 'pesadissimo';
+																	}else{
+																		if ($data['peso'] > 55){
+																			$categoria_idade = 'infantil B';
+																			$categoria_peso = 'extra pesadissimo';
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}else{
+									if ($idade > 11 and $idade <= 13){
+										#infanto juvenil A
+										if ($data['peso '] < 34.5){
+											$categoria_idade = 'infanto juvenil A';
+											$categoria_peso = 'galo';
+										}else{
+											if ($data['peso'] > 34.5 and $data['peso'] <= 38.5){
+												$categoria_idade = 'infanto juvenil A';
+												$categoria_peso = 'pluma';
+											}else{
+												if ($data['peso'] > 38.5 and $data['peso'] <= 42.7){
+													$categoria_idade = 'infanto juvenil A';
+													$categoria_peso = 'pena';
+												}else{
+													if ($data['peso'] > 42.7 and data['peso'] <= 46.7){
+														$categoria_idade = 'infanto juvenil A';
+														$categoria_peso = 'leve';
+													}else{
+														if ($data['peso'] > 46.7 and $data['peso'] <= 51){
+															$categoria_idade = 'infanto juvenil A';
+															$categoria_peso = 'medio';
+														}else{
+															if ($data['peso'] > 51 and $data['peso'] <= 55.5){
+																$categoria_idade = 'infanto juvenil A';
+																$categoria_peso = 'meio-pesado';
+															}else{
+																if (data['peso'] > 55.5 and $data['peso'] <= 59.5){
+																	$categoria_idade = 'infanto juvenil A';
+																	$categoria_peso = 'pesado';
+																}else{
+																	if ($data['peso'] > 59.5 and $data['peso'] <= 63.5){
+																		$categoria_idade = 'infanto juvenil A';
+																		$categoria_peso = 'superpesado';
+																	}else{
+																		if ($data['peso'] < 63.5 and $data['peso'] <= 67.5){
+																			$categoria_idade = 'infanto juvenil A';
+																			$categoria_peso = 'pesadissimo';
+																		}else{
+																			if ($data['peso'] > 67.5){
+																				$categoria_idade = 'infanto juvenil A';
+																				$categoria_peso = 'extra pesadissimo';
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}else{
+										if ($idade > 13 and $idade <= 15){
+											#infanto juvenil B
+											if ($data['peso '] < 44){
+												$categoria_idade = 'infanto juvenil B';
+												$categoria_peso = 'galo';
+											}else{
+												if ($data['peso'] > 44 and $data['peso'] <= 48){
+													$categoria_idade = 'infanto juvenil B';
+													$categoria_peso = 'pluma';
+												}else{
+													if ($data['peso'] > 48 and $data['peso'] <= 52.5){
+														$categoria_idade = 'infanto juvenil B';
+														$categoria_peso = 'pena';
+													}else{
+														if ($data['peso'] > 52.5 and data['peso'] <= 56.5){
+															$categoria_idade = 'infanto juvenil B';
+															$categoria_peso = 'leve';
+														}else{
+															if ($data['peso'] > 56.5 and $data['peso'] <= 60.5){
+																$categoria_idade = 'infanto juvenil B';
+																$categoria_peso = 'medio';
+															}else{
+																if ($data['peso'] > 60.5 and $data['peso'] <= 64.5){
+																	$categoria_idade = 'infanto juvenil B';
+																	$categoria_peso = 'meio-pesado';
+																}else{
+																	if (data['peso'] > 64.5 and $data['peso'] <= 69){
+																		$categoria_idade = 'infanto juvenil B';
+																		$categoria_peso = 'pesado';
+																	}else{
+																		if ($data['peso'] > 69 and $data['peso'] <= 73){
+																			$categoria_idade = 'infanto juvenil B';
+																			$categoria_peso = 'superpesado';
+																		}else{
+																			if ($data['peso'] < 73 and $data['peso'] <= 77){
+																				$categoria_idade = 'infanto juvenil B';
+																				$categoria_peso = 'pesadissimo';
+																			}else{
+																				if ($data['peso'] > 77){
+																					$categoria_idade = 'infanto juvenil B';
+																					$categoria_peso = 'extra pesadissimo';
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}else{
+											if ($idade > 15 and  $idade <= 17){
+												#juvenil
+												if ($data['peso '] < 53.5){
+													$categoria_idade = 'juvenil';
+													$categoria_peso = 'galo';
+												}else{
+													if ($data['peso'] > 53.5 and $data['peso'] <= 58.5){
+														$categoria_idade = 'juvenil';
+														$categoria_peso = 'pluma';
+													}else{
+														if ($data['peso'] > 58.5 and $data['peso'] <= 64){
+															$categoria_idade = 'juvenil';
+															$categoria_peso = 'pena';
+														}else{
+															if ($data['peso'] > 64 and data['peso'] <= 69){
+																$categoria_idade = 'juvenil';
+																$categoria_peso = 'leve';
+															}else{
+																if ($data['peso'] > 69 and $data['peso'] <= 74){
+																	$categoria_idade = 'juvenil';
+																	$categoria_peso = 'medio';
+																}else{
+																	if ($data['peso'] > 74 and $data['peso'] <= 79.3){
+																		$categoria_idade = 'juvenil';
+																		$categoria_peso = 'meio-pesado';
+																	}else{
+																		if (data['peso'] > 79.3 and $data['peso'] <= 84.3){
+																			$categoria_idade = 'juvenil';
+																			$categoria_peso = 'pesado';
+																		}else{
+																			if ($data['peso'] > 84.3 and $data['peso'] <= 89.3){
+																				$categoria_idade = 'juvenil';
+																				$categoria_peso = 'superpesado';
+																			}else{
+																				if ($data['peso'] > 89.3){
+																					$categoria_idade = 'juvenil';
+																					$categoria_peso = 'pesadissimo';
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}else{
+												if ($idade > 17 and $idade <= 29){
+													#adulto
+													if ($data['peso'] < 58){
+														$categoria_idade = 'adulto';
+														$categoria_peso = 'galo';
+													}else{
+														if ($data['peso'] > 58 and $data['peso'] <= 64){
+															$categoria_idade = 'adulto';
+															$categoria_peso = 'pluma';
+														}else{
+															if ($data['peso'] > 64 and $data['peso'] <= 70){
+																$categoria_idade = 'adulto';
+																$categoria_peso = 'pena';
+															}else{
+																if ($data['peso'] > 70 and $data['peso'] <= 76){
+																	$categoria_idade = 'adulto';
+																	$categoria_peso = 'leve';
+																}else{
+																	if ($data['peso'] > 76 and $data['peso'] <= 82.3){
+																		$categoria_idade = 'adulto';
+																		$categoria_peso = 'medio';
+																	}else{
+																		if ($data['peso'] > 82.3 and $data['peso'] <= 88.3){
+																			$categoria_idade = 'adulto';
+																			$categoria_peso = 'meio-pesado';
+																		}else{
+																			if ($data['peso'] > 88.3 and $data['peso'] <= 94.3){
+																				$categoria_idade = 'adulto';
+																				$categoria_peso = 'pesado';
+																			}else{
+																				if ($data['peso'] > 94.3 and $data['peso'] <= 100.5){
+																					$categoria_idade = 'adulto';
+																					$categoria_peso = 'superpesado';
+																				}else{
+																					if ($data['peso'] > 100.5){
+																						$categoria_idade = 'adulto';
+																						$categoria_peso = 'pesadissimo';
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}else{
+													if ($idade > 29){
+														#master
+														if ($data['peso '] < 58){
+															$categoria_idade = 'master';
+															$categoria_peso = 'galo';
+														}else{
+															if ($data['peso'] > 58 and $data['peso'] <= 64){
+																$categoria_idade = 'master';
+																$categoria_peso = 'pluma';
+															}else{
+																if ($data['peso'] > 64 and $data['peso'] <= 70){
+																	$categoria_idade = 'master';
+																	$categoria_peso = 'pena';
+																}else{
+																	if ($data['peso'] > 70 and data['peso'] <= 76){
+																		$categoria_idade = 'master';
+																		$categoria_peso = 'leve';
+																	}else{
+																		if ($data['peso'] > 76 and $data['peso'] <= 82.3){
+																			$categoria_idade = 'master';
+																			$categoria_peso = 'medio';
+																		}else{
+																			if ($data['peso'] > 82.3 and $data['peso'] <= 88.3){
+																				$categoria_idade = 'master';
+																				$categoria_peso = 'meio-pesado';
+																			}else{
+																				if (data['peso'] > 88.3 and $data['peso'] <= 94.3){
+																					$categoria_idade = 'master';
+																					$categoria_peso = 'pesado';
+																				}else{
+																					if ($data['peso'] > 94.3 and $data['peso'] <= 100.5){
+																						$categoria_idade = 'master';
+																						$categoria_peso = 'superpesado';
+																					}else{
+																						if ($data['peso'] > 100.5){
+																							$categoria_idade = 'master';
+																							$categoria_peso = 'pesadissimo';
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}else{
+					#sexo feminino
+					if ($idade <= 5){
+						#pre-mirim
+						if ($data['peso '] <= 15){
+							$categoria_idade = 'pre-mirim';
+							$categoria_peso = 'galo';
+						}else{
+							if ($data['peso'] > 15 and $data['peso'] <= 17){
+								$categoria_idade ='pre-mirim';
+								$categoria_peso = 'pluma';
+							}else{
+								if ($data['peso'] > 17 and $data['peso'] <= 20){
+									$categoria_idade = 'pre-mirim';
+									$categoria_peso = 'pena';
+								}else{
+									if ($data['peso'] > 20 and data['peso'] <= 23){
+										$categoria_idade = 'pre-mirim';
+										$categoria_peso = 'leve';
+									}else{
+										if ($data['peso'] > 23 and $data['peso'] <= 26){
+											$categoria_idade = 'pre-mirim';
+											$categoria_peso = 'medio';
+										}else{
+											if ($data['peso'] > 26 and $data['peso'] <= 29.5){
+												$categoria_idade = 'pre-mirim';
+												$categoria_peso = 'meio-pesado';
+											}else{
+												if (data['peso'] > 29.5 and $data['peso'] <= 32.3){
+													$categoria_idade = 'pre-mirim';
+													$categoria_peso = 'pesado';
+												}else{
+													if ($data['peso'] > 32.3 and $data['peso'] <= 35.3){
+														$categoria_idade = 'pre-mirim';
+														$categoria_peso = 'superpesado';
+													}else{
+														if ($data['peso'] < 35.3 and $data['peso'] <= 38.5){
+															$categoria_idade = 'pre-mirim';
+															$categoria_peso = 'pesadissimo';
+														}else{
+															if ($data['peso'] > 38.5){
+																$categoria_idade = 'pre-mirim';
+																$categoria_peso = 'extra pesadissimo';
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}else{
+						if (idade < 5 and $idade <= 7 ){
+							#mirim
+							if ($data['peso '] < 16){
+								$categoria_idade = 'mirim';
+								$categoria_peso = 'galo';
+							}else{
+								if ($data['peso'] > 16 and $data['peso'] <= 18){
+									$categoria_idade ='mirim';
+									$categoria_peso = 'pluma';
+								}else{
+									if ($data['peso'] > 18 and $data['peso'] <= 21){
+										$categoria_idade = 'mirim';
+										$categoria_peso = 'pena';
+									}else{
+										if ($data['peso'] > 21 and data['peso'] <= 24){
+											$categoria_idade = 'mirim';
+											$categoria_peso = 'leve';
+										}else{
+											if ($data['peso'] > 24 and $data['peso'] <= 27){
+												$categoria_idade = 'mirim';
+												$categoria_peso = 'medio';
+											}else{
+												if ($data['peso'] > 27 and $data['peso'] <= 30.5){
+													$categoria_idade = 'mirim';
+													$categoria_peso = 'meio-pesado';
+												}else{
+													if (data['peso'] > 30.5 and $data['peso'] <= 33.3){
+														$categoria_idade = 'mirim';
+														$categoria_peso = 'pesado';
+													}else{
+														if ($data['peso'] > 33.3 and $data['peso'] <= 36.3){
+															$categoria_idade = 'mirim';
+															$categoria_peso = 'superpesado';
+														}else{
+															if ($data['peso'] < 36.3 and $data['peso'] <= 40){
+																$categoria_idade = 'mirim';
+																$categoria_peso = 'pesadissimo';
+															}else{
+																if ($data['peso'] > 40){
+																	$categoria_idade = 'mirim';
+																	$categoria_peso = 'extra pesadissimo';
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}else{
+							if ($idade < 7 and idade <= 9){
+								#infantil A
+								if ($data['peso '] < 18){
+									$categoria_idade = 'infantil A';
+									$categoria_peso = 'galo';
+								}else{
+									if ($data['peso'] > 18 and $data['peso'] <= 20){
+										$categoria_idade = 'infantil A';
+										$categoria_peso = 'pluma';
+									}else{
+										if ($data['peso'] > 20 and $data['peso'] <= 23){
+											$categoria_idade = 'infantil A';
+											$categoria_peso = 'pena';
+										}else{
+											if ($data['peso'] > 23 and data['peso'] <= 26){
+												$categoria_idade = 'infantil A';
+												$categoria_peso = 'leve';
+											}else{
+												if ($data['peso'] > 26 and $data['peso'] <= 29.3){
+													$categoria_idade = 'infantil A';
+													$categoria_peso = 'medio';
+												}else{
+													if ($data['peso'] > 29.3 and $data['peso'] <= 32.3){
+														$categoria_idade = 'infantil A';
+														$categoria_peso = 'meio-pesado';
+													}else{
+														if (data['peso'] > 32.3 and $data['peso'] <= 35.5){
+															$categoria_idade = 'infantil A';
+															$categoria_peso = 'pesado';
+														}else{
+															if ($data['peso'] > 35.5 and $data['peso'] <= 38.5){
+																$categoria_idade = 'infantil A';
+																$categoria_peso = 'superpesado';
+															}else{
+																if ($data['peso'] < 38.5 and $data['peso'] <= 42.5){
+																	$categoria_idade = 'infantil A';
+																	$categoria_peso = 'pesadissimo';
+																}else{
+																	if ($data['peso'] > 42.5){
+																		$categoria_idade = 'infantil A';
+																		$categoria_peso = 'extra pesadissimo';
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}else{
+								if ($idade > 9 and idade <= 11){
+									#infantil B
+									if ($data['peso '] <= 23){
+										$categoria_idade = 'infantil B';
+										$categoria_peso = 'galo';
+									}else{
+										if ($data['peso'] > 23 and $data['peso'] <= 26){
+											$categoria_idade = 'infantil B';
+											$categoria_peso = 'pluma';
+										}else{
+											if ($data['peso'] > 26 and $data['peso'] <= 29.3){
+												$categoria_idade = 'infantil B';
+												$categoria_peso = 'pena';
+											}else{
+												if ($data['peso'] > 29.33 and data['peso'] <= 32.3){
+													$categoria_idade = 'infantil B';
+													$categoria_peso = 'leve';
+												}else{
+													if ($data['peso'] > 32.3 and $data['peso'] <= 35.5){
+														$categoria_idade = 'infantil B';
+														$categoria_peso = 'medio';
+													}else{
+														if ($data['peso'] > 35.5 and $data['peso'] <= 38.5){
+															$categoria_idade = 'infantil B';
+															$categoria_peso = 'meio-pesado';
+														}else{
+															if (data['peso'] > 38.5 and $data['peso'] <= 41.7){
+																$categoria_idade = 'infantil B';
+																$categoria_peso = 'pesado';
+															}else{
+																if ($data['peso'] > 41.7 and $data['peso'] <= 44.7){
+																	$categoria_idade = 'infantil B';
+																	$categoria_peso = 'superpesado';
+																}else{
+																	if ($data['peso'] < 44.7 and $data['peso'] <= 48){
+																		$categoria_idade = 'infantil B';
+																		$categoria_peso = 'pesadissimo';
+																	}else{
+																		if ($data['peso'] > 48){
+																			$categoria_idade = 'infantil B';
+																			$categoria_peso = 'extra pesadissimo';
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}else{
+									if ($idade > 11 and $idade <= 13){
+										#infanto juvenil A
+										if ($data['peso '] < 29.3){
+											$categoria_idade = 'infanto juvenil A';
+											$categoria_peso = 'galo';
+										}else{
+											if ($data['peso'] > 29.3 and $data['peso'] <= 32.3){
+												$categoria_idade = 'infanto juvenil A';
+												$categoria_peso = 'pluma';
+											}else{
+												if ($data['peso'] > 32.3 and $data['peso'] <= 35.5){
+													$categoria_idade = 'infanto juvenil A';
+													$categoria_peso = 'pena';
+												}else{
+													if ($data['peso'] > 35.5 and data['peso'] <= 38.5){
+														$categoria_idade = 'infanto juvenil A';
+														$categoria_peso = 'leve';
+													}else{
+														if ($data['peso'] > 38.5 and $data['peso'] <= 41.7){
+															$categoria_idade = 'infanto juvenil A';
+															$categoria_peso = 'medio';
+														}else{
+															if ($data['peso'] > 41.7 and $data['peso'] <= 44.7){
+																$categoria_idade = 'infanto juvenil A';
+																$categoria_peso = 'meio-pesado';
+															}else{
+																if (data['peso'] > 44.7 and $data['peso'] <= 47.7){
+																	$categoria_idade = 'infanto juvenil A';
+																	$categoria_peso = 'pesado';
+																}else{
+																	if ($data['peso'] > 47.7 and $data['peso'] <= 51){
+																		$categoria_idade = 'infanto juvenil A';
+																		$categoria_peso = 'superpesado';
+																	}else{
+																		if ($data['peso'] < 51 and $data['peso'] <= 55){
+																			$categoria_idade = 'infanto juvenil A';
+																			$categoria_peso = 'pesadissimo';
+																		}else{
+																			if ($data['peso'] > 55){
+																				$categoria_idade = 'infanto juvenil A';
+																				$categoria_peso = 'extra pesadissimo';
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}else{
+										if ($idade > 13 and $idade <= 15){
+											#infanto juvenil B
+											if ($data['peso '] < 35.5){
+												$categoria_idade = 'infanto juvenil B';
+												$categoria_peso = 'galo';
+											}else{
+												if ($data['peso'] > 35.5 and $data['peso'] <= 39.5){
+													$categoria_idade = 'infanto juvenil B';
+													$categoria_peso = 'pluma';
+												}else{
+													if ($data['peso'] > 39.5 and $data['peso'] <= 43.7){
+														$categoria_idade = 'infanto juvenil B';
+														$categoria_peso = 'pena';
+													}else{
+														if ($data['peso'] > 43.7 and data['peso'] <= 48){
+															$categoria_idade = 'infanto juvenil B';
+															$categoria_peso = 'leve';
+														}else{
+															if ($data['peso'] > 48 and $data['peso'] <= 52.5){
+																$categoria_idade = 'infanto juvenil B';
+																$categoria_peso = 'medio';
+															}else{
+																if ($data['peso'] > 52.5 and $data['peso'] <= 56.5){
+																	$categoria_idade = 'infanto juvenil B';
+																	$categoria_peso = 'meio-pesado';
+																}else{
+																	if (data['peso'] > 56.5 and $data['peso'] <= 60.5){
+																		$categoria_idade = 'infanto juvenil B';
+																		$categoria_peso = 'pesado';
+																	}else{
+																		if ($data['peso'] > 60.5 and $data['peso'] <= 65){
+																			$categoria_idade = 'infanto juvenil B';
+																			$categoria_peso = 'superpesado';
+																		}else{
+																			if ($data['peso'] < 65 and $data['peso'] <= 69){
+																				$categoria_idade = 'infanto juvenil B';
+																				$categoria_peso = 'pesadissimo';
+																			}else{
+																				if ($data['peso'] > 69){
+																					$categoria_idade = 'infanto juvenil B';
+																					$categoria_peso = 'extra pesadissimo';
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}else{
+											if ($idade > 15 and  idade <= 17){
+												#juvenil
+												if ($data['peso '] < 43.7){
+													$categoria_idade = 'juvenil';
+													$categoria_peso = 'galo';
+												}else{
+													if ($data['peso'] > 43.7 and $data['peso'] <= 48){
+														$categoria_idade = 'juvenil';
+														$categoria_peso = 'pluma';
+													}else{
+														if ($data['peso'] > 48 and $data['peso'] <= 52.5){
+															$categoria_idade = 'juvenil';
+															$categoria_peso = 'pena';
+														}else{
+															if ($data['peso'] > 52.5 and data['peso'] <= 56.5){
+																$categoria_idade = 'juvenil';
+																$categoria_peso = 'leve';
+															}else{
+																if ($data['peso'] > 56.5 and $data['peso'] <= 60.5){
+																	$categoria_idade = 'juvenil';
+																	$categoria_peso = 'medio';
+																}else{
+																	if ($data['peso'] > 60.5 and $data['peso'] <= 65){
+																		$categoria_idade = 'juvenil';
+																		$categoria_peso = 'meio-pesado';
+																	}else{
+																		if (data['peso'] > 65 and $data['peso'] <= 69){
+																			$categoria_idade = 'juvenil';
+																			$categoria_peso = 'pesado';
+																		}else{
+																			if ($data['peso'] > 69 and $data['peso'] <= 73){
+																				$categoria_idade = 'juvenil';
+																				$categoria_peso = 'superpesado';
+																			}else{
+																				if ($data['peso'] > 73){
+																					$categoria_idade = 'juvenil';
+																					$categoria_peso = 'pesadissimo';
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}else{
+												if ($idade > 17 and $idade <= 29){
+													#adulto
+													if ($data['peso'] > 53.5){
+														$categoria_idade = 'adulto';
+														$categoria_peso = 'pluma';
+													}else{
+														if ($data['peso'] > 53.5 and $data['peso'] <= 58.5){
+															$categoria_idade = 'adulto';
+															$categoria_peso = 'pena';
+														}else{
+															if ($data['peso'] > 58.5 and data['peso'] <= 64){
+																$categoria_idade = 'adulto';
+																$categoria_peso = 'leve';
+															}else{
+																if ($data['peso'] > 64 and $data['peso'] <= 69){
+																	$categoria_idade = 'adulto';
+																	$categoria_peso = 'medio';
+																}else{
+																	if ($data['peso'] > 69 and $data['peso'] <= 74){
+																		$categoria_idade = 'adulto';
+																		$categoria_peso = 'meio-pesado';
+																	}else{
+																		if (data['peso'] > 74 and $data['peso'] <= 80){
+																			$categoria_idade = 'adulto';
+																			$categoria_peso = 'pesado';
+																		}else{
+																			if ($data['peso'] > 80 and $data['peso'] <= 85){
+																				$categoria_idade = 'adulto';
+																				$categoria_peso = 'superpesado';
+																			}else{
+																				if ($data['peso'] > 85){
+																					$categoria_idade = 'adulto';
+																					$categoria_peso = 'pesadissimo';
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}else{
+													if ($idade > 29){
+														#master
+														if ($data['peso'] > 53.5){
+															$categoria_idade = 'master';
+															$categoria_peso = 'pluma';
+														}else{
+															if ($data['peso'] > 53.5 and $data['peso'] <= 58.5){
+																$categoria_idade = 'master';
+																$categoria_peso = 'pena';
+															}else{
+																if ($data['peso'] > 58.5 and data['peso'] <= 64){
+																	$categoria_idade = 'master';
+																	$categoria_peso = 'leve';
+																}else{
+																	if ($data['peso'] > 64 and $data['peso'] <= 69){
+																		$categoria_idade = 'master';
+																		$categoria_peso = 'medio';
+																	}else{
+																		if ($data['peso'] > 69 and $data['peso'] <= 74){
+																			$categoria_idade = 'master';
+																			$categoria_peso = 'meio-pesado';
+																		}else{
+																			if (data['peso'] > 74 and $data['peso'] <= 80){
+																				$categoria_idade = 'master';
+																				$categoria_peso = 'pesado';
+																			}else{
+																				if ($data['peso'] > 80 and $data['peso'] <= 85){
+																					$categoria_idade = 'master';
+																					$categoria_peso = 'superpesado';
+																				}else{
+																					if ($data['peso'] > 85){
+																						$categoria_idade = 'master';
+																						$categoria_peso = 'pesadissimo';
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+
+				/*
+				 *  logica calculo categoria CBJJ
+				 *
+				 */
+				/*
                 if ($data['sexo'] == 'masculino') {
                     if ($idade <= 10) {
                         if ($data['peso'] <= 22) {
@@ -458,7 +1383,11 @@
                         }
                     }
                 }
-                /*
+                */
+				/*
+				 * //logica calculo categoria CBJJ
+				 */
+				/*
                  * //verifica categoria do competidor
                  */
 

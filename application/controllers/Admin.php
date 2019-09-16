@@ -262,4 +262,62 @@ class Admin extends CI_Controller {
 	public function not_found(){
 		$this->load->view('error404');
 	}
+
+	public function caixa(){
+		$this->load->model('inscricao_model');
+		$lista = $this->inscricao_model->lista_inscricao();
+		$total = $this->inscricao_model->total_inscricoes();
+		$inscricoes_pagas = $this->inscricao_model->inscricoes_pagas();
+		$dados = array(
+			'inscricao' => $lista,
+			'total' => $total,
+			'inscricoes_pagas' => $inscricoes_pagas,
+		);
+		$this->load->view('admin/template/header');
+		$this->load->view('admin/relatorios/caixa', $dados);
+		$this->load->view('admin/template/footer');
+		$this->load->view('admin/template/scripts');
+	}
+
+	public function edita_caixa(){
+		$idInscricao = $this->input->post('idInscricao');
+		$data = array(
+			'situacaoPagamento' => $this->input->post('situacaoPagamento'),
+		);
+		$this->load->model('inscricao_model');
+		$lista = $this->inscricao_model->lista_inscricao();
+		$total = $this->inscricao_model->total_inscricoes();
+		$inscricoes_pagas = $this->inscricao_model->inscricoes_pagas();
+		$dados = array(
+			'inscricao' => $lista,
+			'total' => $total,
+			'inscricoes_pagas' => $inscricoes_pagas,
+		);
+		$this->load->model('inscricao_model');
+		$this->inscricao_model->update($idInscricao, $data);
+		$this->load->view('admin/template/header');
+		$this->load->view('admin/relatorios/caixa', $dados);
+		$this->load->view('admin/template/footer');
+		$this->load->view('admin/template/scripts');
+	}
+
+	public function cadastro_caixa(){
+		$this->load->model('inscricao_model');
+		$data = $this->input->post();
+		$this->load->model('inscricao_model');
+		$lista = $this->inscricao_model->lista_inscricao();
+		$total = $this->inscricao_model->total_inscricoes();
+		$inscricoes_pagas = $this->inscricao_model->inscricoes_pagas();
+		$dados = array(
+			'inscricao' => $lista,
+			'total' => $total,
+			'inscricoes_pagas' => $inscricoes_pagas,
+		);
+		$this->inscricao_model->insert($data);
+		$this->load->view('admin/template/header');
+		$this->load->view('admin/relatorios/caixa', $dados);
+		$this->load->view('admin/template/footer');
+		$this->load->view('admin/template/scripts');
+
+	}
 }

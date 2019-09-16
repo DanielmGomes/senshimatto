@@ -80,6 +80,7 @@
                   <li><a><i class="fa fa-edit"></i> Relátorios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= site_url('admin/inscricoes'); ?>">Inscrições</a></li>
+                      <li><a href="<?= site_url('admin/caixa'); ?>">Caixa</a></li>
                       <li><a href="<?= site_url('admin/not_found'); ?>">Medalistas</a></li>
                       <li><a href="<?= site_url('admin/not_found'); ?>">Chaves de Luta</a></li>
                       <li><a href="<?= site_url('admin/not_found'); ?>">Ranking dos Alunos</a></li>

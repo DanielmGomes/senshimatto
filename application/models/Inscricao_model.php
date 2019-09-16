@@ -12,7 +12,8 @@
                 idCompetidor, nomeCompetidor, nascimentoCompetidor, cpfCompetidor, sexoCompetidor, whatsappCompetidor, emailCompetidor,
                 enderecoCompetidor, bairroCompetidor, whatsappCompetidor, emailCompetidor, enderecoCompetidor, bairroCompetidor, estadoCompetidor,
                 cidadeCompetidor, academiaCompetidor, professorCompetidor,
-                idCompeticao, nomeCompeticao, enderecoCompeticao, estadoCompeticao, cidadeCompeticao, dataCompeticao, descricaoCompeticao, cartazCompeticao')
+                idCompeticao, nomeCompeticao, enderecoCompeticao, estadoCompeticao, 
+                cidadeCompeticao, dataCompeticao, descricaoCompeticao, cartazCompeticao, situacaoPagamento')
 				->from('inscricao')
 				->where('idInscricao', $idInscricao);
 			$result = $this->db->get();
@@ -76,6 +77,20 @@
 			$this->db->from('inscricao');
 			$this->db->where('idCompetidor', $idCompetidor);
 			return $this->db->get()->num_rows() > 0;
+		}
+
+		public function total_inscricoes(){
+			return $this->db->get('inscricao')->num_rows();
+		}
+
+		public  function inscricoes_pagas(){
+        	$situacao = 'pago';
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('inscricao');
+			$this->db->where('situacaoPagamento', $situacao);
+			return $this->db->get()->num_rows();
 		}
 
     }

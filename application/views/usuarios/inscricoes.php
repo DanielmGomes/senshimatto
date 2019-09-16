@@ -32,9 +32,7 @@
                                 	echo '<td>' . $inscricoes['categoriaCompetidor'] . '</td>';
                                 	echo '<td>' . $inscricoes['nomeCompeticao'] . '</td>';
                                 	echo '<td>' . $comp = $dataComp[2] .'/' . $dataComp[1] . '/'. $dataComp[0]. '</td>';
-                                	echo '<td>' .
-											'<button type="button" class="btn btn-primary"  class="btn btn-block" data-toggle="modal" data-target="#modalExemplo">Editar</button>'
-                                		. '</td>';
+                                	echo '<td>' . '<a href="' . site_url('inscricao/boleto') . '">boleto</a>' . '</td>';
 								echo '</tr>';
                             }
                         }
