@@ -62,7 +62,7 @@
 							<br>
 							<h3>II Desafio Arena Jiu-Jitsu</h3>
 							<p>GP em todas as faixas, lutas casadas adultos.</p>
-							<form action="<?php echo site_url('competicao/cadastro_competicao'); ?>" method="post">
+							<form action="<?php echo site_url('competicao/edital'); ?>" method="post">
 								<input type="text" name="idCompeticao" value='1' hidden>
 								<button type="submit" class="btn btn-success" value="enviar" name="enviar">Inscrever-se</button>
 							</form>						

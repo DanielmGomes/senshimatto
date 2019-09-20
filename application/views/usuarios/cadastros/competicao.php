@@ -5,141 +5,283 @@
 				<div class="col-md-12 section-heading text-center">
 					<h2 class="to-animate"><span>Cadastro de Competições</span></h2>
 				</div>
-			</div>
 
-			<div class="contact-grids row">
-				<div class=" col-lg-6 contact-form">
-					<span><img src="<?php echo base_url(); ?>public/images/destaque/cartaz01.jpeg" alt="" style="height: 500px; width: 400px;"></span>
-				</div>
-				<div class=" col-lg-6 map">
-				<form class="form-horizontal form-label-left input_mask" action="<?php echo site_url('inscricao/save_inscricao_competicao'); ?>" method="POST">
-						<div class="row">
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red;">Nome Completo</label>
-								<input type="text" name="nomeCompetidor" value="<?= $nome; ?>" class="form-control" readonly>
-							</div>		
+				<div class="container">
+					<div class="row">
+						<div class="board">
+							<div class="board-inner">
 
-							<div class="col-md-1"></div>
-
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red;">Nascimento</label>
-								<input type="date" class="form-control" name="nascimentoCompetidor" value="<?= $nascimento; ?>" readonly>
-							</div>	
-						</div>
-
-						<div class="row">
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red;">CPF</label>
-								<input type="text" class="cpf form-control" name="cpfCompetidor" id="cpf" value="<?= $cpf; ?>" readonly>
-							</div>	
-
-							<div class="col-md-1"></div>
-
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Sexo</label>
-								<select name="sexoCompetidor" class="form-control" readonly>
-									<option value="<?= $sexo; ?>"><?= $sexo; ?></option>
-								</select>
-							</div>			
-						</div>
-
-						<div class="row">
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Academia</label>
-								<select name="academiaCompetidor" class="form-control" readonly>
-									<option value="<?= $academia; ?>"><?= $academia; ?></option>
-								</select>
-							</div>			
-
-							<div class='col-md-1'></div>
-
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Professor</label>
-								<select name="professorCompetidor" class="form-control" readonly>
-									<option value="<?= $professor; ?>"><?= $professor; ?></option>
-								</select>
+								<ul class="nav nav-tabs" id="myTab">
+									<div class="liner"></div>
+									<li>
+										<a>
+                      						<span class="round-tabs five">
+                      	        				<i class="fas fa-home"></i>
+                      						</span>
+										</a>
+									</li>
+									<li>
+										<a>
+                     						<span class="round-tabs four">
+                         						<i class="fas fa-user"></i>
+                     						</span>
+										</a>
+									</li>
+									<li>
+										<a>
+											<span class="round-tabs five">
+												<i class="fas fa-id-card"></i>
+											</span>
+										</a>
+									</li>
+									<li>
+										<a>
+                         					<span class="round-tabs five">
+                              					<i class="fa fa-check"></i>
+                         					</span>
+										</a>
+									</li>
+									<li>
+										<a>
+                         					<span class="round-tabs five">
+                              					<i class="fa fa-list"></i>
+                         					</span>
+										</a>
+									</li>
+								</ul>
 							</div>
-						</div>
 
-						<div class='row'>
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Faixa</label>
-								<select name="faixaCompetidor" class="form-control" readonly>
-									<option value="<?= $faixa; ?>"><?= $faixa; ?></option>
-								</select>
-							</div>			
+							<!--
+							/*
+							* conteudo navs
+							*/
+							-->
+							<form action="<?php echo site_url('inscricao/save_inscricao_competicao'); ?>" method="POST">
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="edital">
+									<h3 class="head text-center">Dados do Atleta</h3>
 
-							<div class='col-md-1'></div>
-
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Peso</label>
-								<input type="text" class="peso form-control" name="pesoCompetidor" value="<?= $peso; ?>" readonly>
-							</div>
-						</div>
-
-						<div class='row'>
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Competir Absoluto</label>
-								<select name="absoluto" class="form-control">
-									<option value="nao">-</option>
-									<option value="sim">Sim</option>
-									<option value="nao">Não</option>
-								</select>
-							</div>			
-
-							<div class='col-md-1'></div>
-
-							<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-								<label for="" style="color: red; ">Categoria</label>
-								<input type="text" class="form-control" name="categoriaCompetidor" value="<?= $categoria_peso; ?>" readonly>
-							</div>
-						</div>
-
-						<!-- sem campo -->
-						<input type="text" name="idCompetidor" value="<?= $idUsuario; ?>" hidden>
-						<input type="text" name="whatsappCompetidor" value="<?= $whatsapp; ?>" hidden>
-						<input type="text" name="emailCompetidor" value="<?= $email; ?>" hidden>
-						<input type="text" name="enderecoCompetidor" value="<?= $endereco; ?>" hidden>
-						<input type="text" name="bairroCompetidor" value="<?= $bairro; ?>" hidden>
-						<input type="text" name="estadoCompetidor" value="<?= $estado; ?>" hidden>
-						<input type="text" name="cidadeCompetidor" value="<?= $cidade; ?>" hidden>
-						<input type="text" name="idadeCompetidor" value="<?= $idade; ?>" hidden>
-						<input type="text" name="idCompeticao" value="<?= $idCompeticao; ?>" hidden>
-						<input type="text" name="nomeCompeticao" value="<?= $nomeCompeticao; ?>" hidden>
-						<input type="text" name="enderecoCompeticao" value="<?= $enderecoCompeticao; ?>" hidden>
-						<input type="text" name="estadoCompeticao" value="<?= $estadoCompeticao; ?>" hidden>
-						<input type="text" name="cidadeCompeticao" value="<?= $cidadeCompeticao; ?>" hidden>
-						<input type="text" name="dataCompeticao" value="<?= $dataCompeticao; ?>" hidden>
-						<input type="text" name="descricaoCompeticao" value="<?= $descricaoCompeticao; ?>" hidden>
-						<input type="text" name="cartazCompeticao" value="<?= $cartazCompeticao; ?>" hidden>
-						<!-- //sem campo -->
-
-						<div class="row">
-							<br>
-							<div class="ln_solid"></div>
-							<div class="form-group">
-								<div class="col-md-12 col-sm-9 col-xs-12 col-md-offset-3">
-									<?php
-									if(isset($_SESSION['duplicado'])):
-										?>
-										<div class="notification is-danger">
-											<span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-user"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Nome Completo</h3>
+											<p style="margin-left: 80px;"><b><?= $nome; ?></b></p>
 										</div>
-									<?php
-									endif;
-									unset($_SESSION['duplicado']);
-									?>
-									<button type="submit" class="btn btn-success"  class="btn btn-block">Salvar</button>
-									<button type="button" class="btn btn-primary"  class="btn btn-block" data-toggle="modal" data-target="#modalExemplo">Editar</button>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-calendar"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Idade</h3>
+											<p style="margin-left: 80px;"><b><?= $idade; ?> Anos</b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-level-up"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Graduação</h3>
+											<p style="margin-left: 80px;"><b><?= $faixa; ?></b></p>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-tachometer"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Peso</h3>
+											<p style="margin-left: 80px;"><b>Kg <?= $peso; ?></b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-home"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Academia</h3>
+											<p style="margin-left: 80px;"><b><?= $academia; ?></b></p>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-user"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Professor</h3>
+											<p style="margin-left: 80px;"><b><?= $professor; ?></b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<br>
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+											<div class="col-md-8 col-sm-6 col-xs-12 form-group">
+												<?php
+												if(isset($_SESSION['duplicado'])):
+													?>
+													<div class="notification is-danger">
+														<span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
+													</div>
+												<?php
+												endif;
+												unset($_SESSION['duplicado']);
+												?>
+												<a href="#edital" data-toggle="tab">
+													<button type="button" class="btn btn-success btn-circle btn-xl"><i class="fa fa-arrow-circle-left"></i> Voltar</button>
+												</a>
+
+												<button type="button" class="btn btn-primary"  class="btn btn-block" data-toggle="modal" data-target="#modalExemplo">Editar</button>
+
+
+												<a href="#confirmar_inscricao" data-toggle="tab">
+													<button type="button" class="btn btn-success btn-circle btn-xl" >Continuar <i class="fa fa-arrow-circle-right"></i></button>
+												</a>
+
+											</div>
+											<div class="col-md-2 col-sm-9 col-xs-12 col-md-offset-3"></div>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-10 col-sm-6 col-xs-12 form-group">
+
+										</div>
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+									</div>
 								</div>
+								<div class="tab-pane fade" id="confirmar_inscricao">
+									<h3 class="head text-center">Confirmar Inscrição</h3>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-user"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Competição</h3>
+											<p style="margin-left: 80px;"><b><?= $nomeCompeticao; ?></b></p>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-calendar"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Competidor</h3>
+											<p style="margin-left: 80px;"><b><?= $nome; ?> Anos</b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-level-up"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Graduação</h3>
+											<p style="margin-left: 80px;"><b><?= $faixa; ?></b></p>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-tachometer"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Categoria / Peso</h3>
+											<p style="margin-left: 80px;"><b>Categoria: <?= $categoria_peso;; ?> |  Kg <?= $peso; ?></b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-1 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-home"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Academia</h3>
+											<p style="margin-left: 80px;"><b><?= $academia; ?></b></p>
+										</div>
+										<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+										<div class="col-md-4 col-sm-6 col-xs-12 form-group">
+											<span class="round-tabs one" style="margin-top: 20px;">
+												<i class="fa fa-user"></i>
+											</span>
+											<h3 class="head" style="margin-left: 80px; color: green;">Professor</h3>
+											<p style="margin-left: 80px;"><b><?= $professor; ?></b></p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<?php
+												if ($idade <= 18){
+													echo '<h3 class="head" style="margin-left: 80px; color: green;">Valor da Inscrição R$ 50,00</h3>';
+												}else{
+													#maior de 18 anos
+													echo '<h3 class="head" style="margin-left: 80px; color: red;">Valor da Inscrição R$ 70,00</h3>';
+
+												}
+											?>
+										</div>
+										<div class="col-md-3"></div>
+									</div>
+									<div class="row">
+										<br>
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
+											<div class="col-md-8 col-sm-6 col-xs-12 form-group">
+												<?php
+												if(isset($_SESSION['duplicado'])):
+													?>
+													<div class="notification is-danger">
+														<span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
+													</div>
+												<?php
+												endif;
+												unset($_SESSION['duplicado']);
+												?>
+												<a href="#edital" data-toggle="tab">
+													<button type="button" class="btn btn-success btn-circle btn-xl"><i class="fa fa-arrow-circle-left"></i> Voltar</button>
+												</a>
+
+												<a href="#confirmar_inscricao" data-toggle="tab">
+													<button type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal" data-target="#confirmar">Continuar <i class="fa fa-arrow-circle-right"></i></button>
+												</a>
+
+											</div>
+											<div class="col-md-2 col-sm-9 col-xs-12 col-md-offset-3"></div>
+
+										</div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
 							</div>
-						</div> 
-					</form>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+    $(function(){
+        $('a[title]').tooltip();
+    });
+
+</script>
+
 
 <!-- Modal -->
 <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,3 +377,30 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<label for="" style="color: grey; ">Editar</label>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal form-label-left input_mask" action="<?php echo site_url('inscricao/teste'); ?>" method="POST">
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button type="submit=" class="btn btn-primary">Salvar mudanças</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+

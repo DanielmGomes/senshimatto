@@ -39,7 +39,6 @@
 						<li><a href="<?php echo site_url('home/not_found'); ?>"><span>Competições</span></a></li>
 						<li><a href="<?php echo site_url('home/not_found'); ?>" data-nav-section="testimony"><span>Filiações</span></a></li>
 						<li><a href="<?php echo site_url('home/not_found'); ?>" data-nav-section="pricing"><span>Ranking</span></a></li>
-						<li><a href="<?php echo site_url('home/not_found'); ?>" data-nav-section="#"><span>Perguntas</span></a></li>
 						<li class="call-to-action"><a class="sign-up" href="<?php echo site_url('home/login'); ?>"><span>Acessar Conta</span></a></li>
 						<li class="call-to-action"><a class="log-in" href="<?php echo site_url('home/cadastroUsuario'); ?>"><span>Cadastrar-se</span></a></li>
 					</ul>

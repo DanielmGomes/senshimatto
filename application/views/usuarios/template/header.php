@@ -21,8 +21,11 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
 	<!-- select com pesquisa -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />	
-
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+	<!-- navs cadastro competição -->
+	<link rel="stylesheet" href="<?= base_url(); ?>public/css/navs.css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	</head>
 	<body>
 	<!-- menu -->

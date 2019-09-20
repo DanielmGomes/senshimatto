@@ -6,7 +6,7 @@
 			$this->load->database();
         }
  
-		public function get_user_data($inscricao){
+		public function get_user_data($idInscricao){
 			$this->db
                 ->select('idInscricao, 
                 idCompetidor, nomeCompetidor, nascimentoCompetidor, cpfCompetidor, sexoCompetidor, whatsappCompetidor, emailCompetidor,
@@ -56,16 +56,7 @@
 			$this->db->where($field, $value);
 			return $this->db->get()->num_rows() > 0;
 		}
-		/*
-        public function lista_inscricao($idCompetidor, $select = NULL){
-			if (!empty($select)) {
-				$this->db->select($select);
-			}
-			$this->db->from('inscricao');
-			$this->db->where('idCompetidor', $idCompetidor);
-			return $this->db->get();          
-		}
-		*/
+
         public function lista_inscricao(){
             return $this->db->get('inscricao')->result_array();
         }

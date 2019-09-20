@@ -25,18 +25,19 @@
 			</div>
 			<div class="col-md-4 to-animate">
 				<h3 class="section-title">Fale conosco</h3>
-				<form class="contact-form">
+
+				<form class="contact-form" id="form_contato" action="<?= site_url('contato/enviar'); ?>" method="post">
 					<div class="form-group">
 						<label for="name" class="sr-only">Name</label>
-						<input type="name" class="form-control" id="name" placeholder="Nome">
+						<input type="name" class="form-control" id="name" placeholder="Nome" name="nome">
 					</div>
 					<div class="form-group">
 						<label for="email" class="sr-only">Email</label>
-						<input type="email" class="form-control" id="email" placeholder="E-mail">
+						<input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
 					</div>
 					<div class="form-group">
 						<label for="message" class="sr-only">Message</label>
-						<textarea class="form-control" id="message" rows="7" placeholder="Mensagem"></textarea>
+						<textarea class="form-control" id="message" rows="7" placeholder="Mensagem" name="mensagem"></textarea>
 					</div>
 					<div class="form-group">
 						<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Enviar">

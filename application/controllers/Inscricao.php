@@ -87,5 +87,12 @@
 			$dados['boleto'] = $boleto->getOutput();
 			$this->load->view('boleto', $dados);
 		}
+
+		public function teste(){
+			$this->load->view('usuarios/template/header');
+			$this->load->view('usuarios/cadastros/imprimir_boleto');
+			$this->load->view('template/footer');
+			$this->load->view('template/scripts');
+        }
     }
 ?>

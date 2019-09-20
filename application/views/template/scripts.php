@@ -34,5 +34,8 @@
 
 		<script type="text/javascript" src="<?= base_url(); ?>public/js/utils.js"></script>
 
+		<script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+
+
 		</body>
 </html>

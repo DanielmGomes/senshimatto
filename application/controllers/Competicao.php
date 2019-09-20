@@ -76,7 +76,21 @@
             $this->load->view('admin/cadastros/competicoes');
         }
 
-        public function cadastro_competicao(){
+        public function edital(){
+        	if ($this->session->userdata('idUsuario')){
+				$this->load->view('usuarios/template/header');
+				$this->load->view('usuarios/cadastros/edital');
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+			}else {
+				$this->load->view('template/header');
+				$this->load->view('login');
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+			}
+		}
+
+        public function confirmar_inscricao(){
             if ($this->session->userdata('idUsuario')) {
 
             	/*
@@ -108,6 +122,7 @@
                 $ano_nascimento = $nascimento[0];
                 $mes_nascimento = $nascimento[1];
                 $dia_nascimento = $nascimento[2];
+                $data_nascimento = $dia_nascimento . '/' .  $mes_nascimento . '/' . $ano_nascimento;
                 $idade = $ano_atual - $ano_nascimento;
                 /*
                 * //calcular idade do competidor
@@ -1387,6 +1402,7 @@
 				/*
 				 * //logica calculo categoria CBJJ
 				 */
+
 				/*
                  * //verifica categoria do competidor
                  */
@@ -1431,15 +1447,17 @@
                     'dataCompeticao' => $competicao['data'],
                     'descricaoCompeticao' => $competicao['descricao'],
                     'cartazCompeticao' => $competicao['cartaz'],
+					'data_nascimento' => $data_nascimento,
+
 					/*
 					 * //dados da competição
 					*/
                 );
 
                 $this->load->view('usuarios/template/header');
-                $this->load->view('usuarios/cadastros/competicao', $dados);
+                $this->load->view('usuarios/cadastros/confirmar_inscricao', $dados);
                 $this->load->view('template/footer');
-                $this->load->view('template/scripts');  
+                $this->load->view('template/scripts');
                 /*
                  * //carregar dados para view
                  */
@@ -1449,9 +1467,71 @@
                 $this->load->view('template/header');
                 $this->load->view('login');
                 $this->load->view('template/footer');
-                $this->load->view('template/scripts');                
+                $this->load->view('template/scripts');
             }
         }
+
+		public function dados_atleta(){
+			if ($this->session->userdata('idUsuario')) {
+
+				$this->load->model('usuario_model');
+				$this->load->model('competicao_model');
+
+				$idUsuario = $this->session->userdata('idUsuario');
+
+				$data = $this->usuario_model->get_data($idUsuario)->result_array()[0];
+				$lista = $this->competicao_model->lista_academia();
+
+				/*
+				*calcular idade do competidor
+				*/
+				$dia = date('d');
+				$mes = date('m');
+				$ano = date('y');
+				$ano_atual = 2000 + $ano;
+				$nascimento = explode('-', $data['nascimento']);
+				$ano_nascimento = $nascimento[0];
+				$mes_nascimento = $nascimento[1];
+				$dia_nascimento = $nascimento[2];
+				$data_nascimento = $dia_nascimento . '/' .  $mes_nascimento . '/' . $ano_nascimento;
+				$idade = $ano_atual - $ano_nascimento;
+
+				$dados = array(
+					'idUsuario' => $data['idUsuario'],
+					'nome' => $data['nome'],
+					'nascimento' => $data['nascimento'],
+					'cpf' => $data['cpf'],
+					'sexo' => $data['sexo'],
+					'whatsapp' => $data['whatsapp'],
+					'email' => $data['email'],
+					'academia' => $data['academia'],
+					'professor' => $data['professor'],
+					'faixa' => $data['faixa'],
+					'peso' => $data['peso'],
+					'endereco' => $data['endereco'],
+					'bairro' => $data['bairro'],
+					'estado' => $data['estado'],
+					'cidade' => $data['cidade'],
+					'idade' => $idade,
+					'lista_academia' => $lista,
+				);
+
+				$this->load->view('usuarios/template/header');
+				$this->load->view('usuarios/cadastros/dados_atleta', $dados);
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+				/*
+				 * //carregar dados para view
+				 */
+
+
+			}else {
+				$this->load->view('template/header');
+				$this->load->view('login');
+				$this->load->view('template/footer');
+				$this->load->view('template/scripts');
+			}
+		}
 
 		public function edita_inscricao(){
 			$idUsuario = $this->session->userdata('idUsuario');
@@ -1468,7 +1548,7 @@
 
 			$this->load->model('usuario_model');
 			$this->usuario_model->update($idUsuario, $data);
-			$this->cadastro_competicao();
+			$this->dados_atleta();
 		}
 
         public function cidades(){
