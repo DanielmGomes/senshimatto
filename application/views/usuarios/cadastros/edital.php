@@ -17,7 +17,7 @@
 									<div class="liner"></div>
 									<li>
 										<a>
-                      						<span class="round-tabs four">
+                      						<span class="round-tabs one">
                       	        				<i class="fas fa-home"></i>
                       						</span>
 										</a>
@@ -59,14 +59,30 @@
 									<p class="narrow text-center">
 										Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
 									</p>
+									<?php
+									if(isset($_SESSION['duplicado'])):
+										?>
+										<div class="notification is-danger">
+											<p class="text-center">
+											<div class="alert alert-danger" role="alert">
+												<p class="text-center">
+													ERRO: usuario já está cadastrado na competição !
+												</p>
+											</div>
+											</p>
+										</div>
+									<?php
+									endif;
+									unset($_SESSION['duplicado']);
+									?>
 									<p class="text-center">
 										<a href="<?= site_url('competicao/dados_atleta'); ?>" class="btn btn-success btn-outline-rounded green"> Inscrever-se</a>
 										<a href="<?= base_url(); ?>public/edital/dummy.pdf" target="_blank" class="btn btn-danger btn-outline-rounded red"> Download Edital</a>
+										<a href="<?= site_url('competicao/inscritos'); ?>" class="btn btn-danger btn-outline-rounded green"> Inscritos</a>
 									</p>
 								</div>
 								<div class="clearfix"></div>
 							</div>
-
 						</div>
 					</div>
 				</div>

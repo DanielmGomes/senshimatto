@@ -98,15 +98,14 @@
 				*/
                 $this->load->model('competicao_model');
                 $this->load->model('usuario_model');
-                $this->load->model('competicao_model');
+				$this->load->model('competicao_model');
+				$this->load->model('inscricao_model');
 				/*
 				 * //carregar models
 				 */
 
 				$idUsuario = $this->session->userdata('idUsuario');
 				$idCompeticao = 1;
-				#$idCompeticao = $this->input->post('idCompeticao');
-
 				$data = $this->usuario_model->get_data($idUsuario)->result_array()[0];
                 $competicao = $this->competicao_model->get_data($idCompeticao)->result_array()[0];
 				$lista = $this->competicao_model->lista_academia();
@@ -316,7 +315,7 @@
 															$categoria_idade = 'infantil B';
 															$categoria_peso = 'meio-pesado';
 														}else{
-															if (data['peso'] > 44.7 and $data['peso'] <= 47.7){
+															if ($data['peso'] > 44.7 and $data['peso'] <= 47.7){
 																$categoria_idade = 'infantil B';
 																$categoria_peso = 'pesado';
 															}else{
@@ -649,7 +648,7 @@
 							}
 						}
 					}else{
-						if (idade < 5 and $idade <= 7 ){
+						if ($idade < 5 and $idade <= 7 ){
 							#mirim
 							if ($data['peso '] < 16){
 								$categoria_idade = 'mirim';
@@ -753,7 +752,7 @@
 									}
 								}
 							}else{
-								if ($idade > 9 and idade <= 11){
+								if ($idade > 9 and $idade <= 11){
 									#infantil B
 									if ($data['peso '] <= 23){
 										$categoria_idade = 'infantil B';
@@ -909,7 +908,7 @@
 												}
 											}
 										}else{
-											if ($idade > 15 and  idade <= 17){
+											if ($idade > 15 and  $idade <= 17){
 												#juvenil
 												if ($data['peso '] < 43.7){
 													$categoria_idade = 'juvenil';
@@ -1020,7 +1019,7 @@
 																			$categoria_idade = 'master';
 																			$categoria_peso = 'meio-pesado';
 																		}else{
-																			if (data['peso'] > 74 and $data['peso'] <= 80){
+																			if ($data['peso'] > 74 and $data['peso'] <= 80){
 																				$categoria_idade = 'master';
 																				$categoria_peso = 'pesado';
 																			}else{
@@ -1476,11 +1475,25 @@
 
 				$this->load->model('usuario_model');
 				$this->load->model('competicao_model');
+				$this->load->model('inscricao_model');
 
 				$idUsuario = $this->session->userdata('idUsuario');
 
 				$data = $this->usuario_model->get_data($idUsuario)->result_array()[0];
 				$lista = $this->competicao_model->lista_academia();
+
+				$idCompetidor = $this->session->userdata('idUsuario');
+				$idCompeticao = 1;
+				#$idCompeticao = $this->input->post('idCompeticao');
+				$duplicado = $this->inscricao_model->listaInscricao($idCompetidor);
+
+				if ($duplicado == 1) {
+					$_SESSION['duplicado'] = true;
+					$this->load->view('usuarios/template/header');
+					$this->load->view('usuarios/cadastros/edital');
+					$this->load->view('template/footer');
+					$this->load->view('template/scripts');
+				}
 
 				/*
 				*calcular idade do competidor
@@ -1551,9 +1564,32 @@
 			$this->dados_atleta();
 		}
 
+		public function opcoes_pagamento(){
+        	$this->load->view('usuarios/template/header');
+        	$this->load->view('usuarios/cadastros/opcoes_pagamento');
+        	$this->load->view('template/footer');
+        	$this->load->view('template/scripts');
+		}
+
+		public function inscritos(){
+			$this->load->model('inscricao_model');
+			$lista = $this->inscricao_model->lista_inscricao();
+			$dados = array(
+				'inscricao' => $lista,
+				'competicao' => $this->input->post('competicao'),
+				'sexo' => $this->input->post('sexo'),
+				'graduacao' => $this->input->post('graduacao'),
+				'categoria' => $this->input->post('categoria'),
+			);
+			$this->load->view('usuarios/template/header');
+			$this->load->view('usuarios/cadastros/inscritos', $dados);
+			$this->load->view('template/footer');
+			$this->load->view('template/scripts');
+		}
+
         public function cidades(){
             $this->load->view('cidades');
-        }
+		}
 
     }
 ?>

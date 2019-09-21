@@ -63,7 +63,7 @@
 													<i class="fas fa-user"></i>
 												</span>
 												<h3 class="head" style="margin-left: 80px; color: green;">Nome Completo</h3>
-												<p style="margin-left: 80px;"><b><?= $nome; ?></b></p>
+												<p style="margin-left: 80px;"><b><?= $academia; ?></b></p>
 											</div>
 											<div class="col-md-3 col-sm-6 col-xs-12 form-group"></div>
 											<div class="col-md-4 col-sm-6 col-xs-12 form-group">

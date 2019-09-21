@@ -35,7 +35,9 @@
 		<script type="text/javascript" src="<?= base_url(); ?>public/js/utils.js"></script>
 
 		<script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+		<script src="<?= base_url(); ?>public/js/habilita.js"></script>
 
 		</body>
 </html>

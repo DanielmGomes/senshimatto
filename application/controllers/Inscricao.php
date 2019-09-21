@@ -11,8 +11,7 @@
             $this->load->library('session');
         }
   
-        public function save_inscricao_competicao()
-		{
+        public function save_inscricao_competicao(){
 			$data = $this->input->post();
 			$this->load->model('inscricao_model');
 			$dados = array(
@@ -41,6 +40,8 @@
 				'dataCompeticao' => $data['dataCompeticao'],
 				'descricaoCompeticao' => $data['descricaoCompeticao'],
 				'cartazCompeticao' => $data['cartazCompeticao'],
+				'situacaoPagamento' => $data['situacaoPagamento'],
+				'valorInscricao' => $data['valorInscricao'],
 			);
 
 			$idCompetidor = $this->session->userdata('idUsuario');
@@ -49,7 +50,7 @@
 			if ($duplicado == 1) {
 				$_SESSION['duplicado'] = true;
 				$this->load->view('usuarios/template/header');
-				$this->load->view('usuarios/cadastros/competicao', $dados);
+				$this->load->view('usuarios/cadastros/edital', $dados);
 				$this->load->view('template/footer');
 				$this->load->view('template/scripts');
 			} else {
@@ -61,7 +62,7 @@
 					'idUsuario' => $idCompetidor,
 				);
 				$this->load->view('usuarios/template/header');
-				$this->load->view('home');
+				$this->load->view('usuarios/cadastros/opcoes_pagamento');
 				$this->load->view('template/footer');
 				$this->load->view('template/scripts');
 			}
@@ -94,5 +95,34 @@
 			$this->load->view('template/footer');
 			$this->load->view('template/scripts');
         }
+
+		public function	consulta_inscritos(){
+			$this->load->model('inscricao_model');
+			$competicao = $this->input->post('competicao');
+			$sexo = $this->input->post('sexo');
+			$graduacao = $this->input->post('graduacao');
+			$categoria = $this->input->post('categoria');
+
+
+			#$lista = $this->inscricao_model->consulta_inscritos($competicao, $sexo, $graduacao, $categoria);
+			$lista = $this->inscricao_model->lista_inscricao($competicao, $sexo, $graduacao, $categoria);
+
+			$dados = array(
+				'inscricao' => $lista,
+				'competicao' => $this->input->post('competicao'),
+				'sexo' => $this->input->post('sexo'),
+				'graduacao' => $this->input->post('graduacao'),
+				'categoria' => $this->input->post('categoria'),
+			);
+
+			$this->load->view('usuarios/template/header');
+			$this->load->view('usuarios/cadastros/inscritos', $dados);
+			$this->load->view('template/footer');
+			$this->load->view('template/scripts');
+
+        }
+
+
+
     }
 ?>

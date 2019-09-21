@@ -84,5 +84,14 @@
 			return $this->db->get()->num_rows();
 		}
 
+		public  function consulta_inscritos($competicao, $sexo, $graduacao, $categoria){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('inscricao');
+			$this->db->where('nomeCompeticao', $competicao and 'sexoCompetidor', $sexo and 'faixaCompetidor', $graduacao and 'categoriaCompetidor', $categoria);
+			return $this->db->get()->result_array();
+		}
+
     }
 ?>

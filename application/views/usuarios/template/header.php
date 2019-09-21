@@ -26,7 +26,9 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>public/css/navs.css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	</head>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+
+</head>
 	<body>
 	<!-- menu -->
 	<header role="banner" id="fh5co-header">
