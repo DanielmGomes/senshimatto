@@ -21,33 +21,40 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
 	<!-- select com pesquisa -->
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<!--
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />	
-	-->
-		<!-- navs cadastro competição -->
-		<link rel="stylesheet" href="<?= base_url(); ?>public/css/navs.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+	<!-- navs cadastro competição -->
+	<link rel="stylesheet" href="<?= base_url(); ?>public/css/navs.css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
 
-	</head>
+</head>
 	<body>
 	<!-- menu -->
 	<header role="banner" id="fh5co-header">
 		<div class="fluid-container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
- 					<a class="navbar-brand" href="<?php echo site_url('home'); ?>">Senshi Matto</a> 
+ 					<a class="navbar-brand" href="index.php">Senshi Matto</a> 
 				</div>
 				<div>
 					<ul id="menu" class="nav navbar-nav navbar-right">
 						<li class="active"><a href="<?php echo site_url('home'); ?>"><span>Home</span></a></li>
-						<li><a  href="<?php echo site_url('home/not_found'); ?>"><span>Quem Somos</span></a></li>
-						<li><a href="<?php echo site_url('home/not_found'); ?>"><span>Competições</span></a></li>
-						<li><a href="<?php echo site_url('home/filiacoes'); ?>" data-nav-section="testimony"><span>Filiações</span></a></li>
-						<li><a href="<?php echo site_url('home/not_found'); ?>" data-nav-section="pricing"><span>Ranking</span></a></li>
-						<li class="call-to-action"><a class="sign-up" href="<?php echo site_url('home/acessar_conta'); ?>"><span>Acessar Conta</span></a></li>
-						<li class="call-to-action"><a class="log-in" href="<?php echo site_url('home/cadastroUsuario'); ?>"><span>Cadastrar-se</span></a></li>
+						<li><a  href="#"><span>Quem Somos</span></a></li>
+						<li><a href="#"><span>Competições</span></a></li>
+						<li><a href="#" data-nav-section="pricing"><span>Ranking</span></a></li>
+						<li><a href="#" data-nav-section="#"><span>Perguntas</span></a></li>
+						<li>
+							<a class="dropdown-toggle" data-toggle="dropdown">
+								<span>bem-vindo, <?php echo $this->session->userdata('professor'); ?></span>
+    							<ul class="dropdown-menu">
+      								<li><a href="<?php echo site_url('usuarios/minhaConta'); ?>">Minha Conta</a></li>
+									<li><a href="<?= site_url('home/lista_inscricao'); ?>">Minhas Inscrições</a></li>
+      								<li><a href="<?php echo site_url('usuarios/logoff'); ?>">Logoff</a></li>
+    							</ul>
+							</a>
+						</li>
+
 					</ul>
 				</div>
 			</nav>

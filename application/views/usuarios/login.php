@@ -47,7 +47,21 @@
                     <div class="col-md-4"></div>
                 </div>
 
-                <br>
+				<!--
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<a  data-toggle="modal" data-target="#recuperarSenha">
+							<p>
+								esqueci minha senha
+							</p>
+						</a>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+				-->
+
+					<br>
               <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group"></div>
 
@@ -63,3 +77,38 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="recuperarSenha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<label for="" style="color: grey; ">Recuperar Senha</label>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal form-label-left input_mask" action="<?php echo site_url('usuarios/recuperar_senha'); ?>" method="POST">
+					<div class="row">
+						<div class="col-md-12">
+							<label for="">Informe E-mail Cadastrado</label>
+							<input type="email" name="email" class="form-control">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<label for="">Informe Nova Senha</label>
+							<input type="password" name="senha" class="form-control">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<button type="submit=" class="btn btn-primary">Enviar</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

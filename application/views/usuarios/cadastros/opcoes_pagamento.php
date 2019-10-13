@@ -64,26 +64,34 @@
 										<h3 class="head text-center">formas de Pagamento</h3>
 									</div>
 									<br>
+									<!--
 									<p class="text-center">
 										clique abaixo para imprimir seu boleto.
 									</p>
 									<p class="text-center">
-										<a href="<?= base_url(); ?>public/edital/dummy.pdf" target="_blank" class="btn btn-danger btn-outline-rounded red"> Download Edital</a>
+										<a href="<?= site_url('inscricao/boleto'); ?>" target="_blank" class="btn btn-danger btn-outline-rounded red">Imprimir Boleto</a>
 									</p>
 									<div class="clearfix"></div>
 									<br>
 									<h3 class="head text-center">Ou</h3>
+									-->
 									<p class="text-center">
-										deposite o valor de sua inscrição na conta abaixo.
+										<b>
+											deposite o valor de sua inscrição na conta abaixo.
+										</b>
 									</p>
 									<p class="text-center">
-										deposite o valor de sua inscrição na conta abaixo.
 										<br>
-										deposite o valor de sua inscrição na conta abaixo.
+										Banco: Bradesco Poupança
 										<br>
-										deposite o valor de sua inscrição na conta abaixo.
+										Ag: 0120
 										<br>
-										deposite o valor de sua inscrição na conta abaix
+										CC: 1010879-9
+										<br>
+										Titular: Danilo Gomes Medeiros
+										<br>
+										<br>
+										OBS: Inscrições somente serão efetuadas mediante de apresentação do comprovante de deposito.
 									</p>
 									<div class="row">
 										<div class="col-md-2 col-sm-6 col-xs-12 form-group"></div>

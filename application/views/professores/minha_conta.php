@@ -3,7 +3,9 @@
         <div class="container">
             <div class="row">
                 <div class="board">
-            		<!-- tabs de escolha de cadastro competidor / professor -->
+            		<!-- 
+						* tabs de escolha de cadastro competidor / professor 
+					-->
                     <div>
                     	<ul class="nav nav-tabs" id="myTab">
                     		<div class="linha"></div>
@@ -11,10 +13,10 @@
                     			<p></p>
                   			</li>
                  			<li>
-                 			 	<a href="#competidor" data-toggle="tab" title="Sou Competidor">
+                 			 	<a href="#academia" data-toggle="tab" title="Sua Academia">
                      				<span class="round-tabs two">
                          				<i class="glyphicon glyphicon-user"></i>
-										<p>Competidor</p>
+										<p>Academia</p>
                      				</span> 
            						</a>
                  			</li>
@@ -22,10 +24,10 @@
                  				<p></p>
                  			</li>
                      		<li>
-								<a href="#professor" data-toggle="tab" title="Sou Professor">
+								<a href="#alunos" data-toggle="tab" title="Seus Alunos">
 									<span class="round-tabs four">
 										<i class="glyphicon glyphicon-comment"></i>
-										<p>Professor</p>
+										<p>Alunos</p>
 									</span>
                      			</a>
 							</li>
@@ -34,56 +36,34 @@
 							 </li>
 						</ul>
 					</div>
-					<!-- //tabs de escolha de cadastro competidor / professor -->
 
 					<!--
 						* corpo tab competidor	
 					-->
 					<div class="tab-content">
-						<div class="tab-pane fade in active" id="competidor">
-                          	<h3 class="head text-center">Cadastro de Competidor</h3>
-							<form class="form-horizontal form-label-left input_mask" action="<?php echo site_url('usuarios/save_usuario'); ?>" method="POST">
+						<div class="tab-pane fade in active" id="academia">
+							<?php
+								/*
+								* caso o professor ainda não cadastrou a academia, session referente a pagina de cadastro de academia
+								* (aparece somente uma vez para realizar cadastro, posteriormente só aparece editar) 
+								*/
+								if (isset($_SESSION["cadastro_academia"])):
+							?>
+
+                          	<h3 class="head text-center">Cadastro de Academia</h3>
+							<form class="form-horizontal form-label-left input_mask" action="<?php echo site_url("usuarios/save_usuario"); ?>" method="POST">
 								<div class="row">
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Nome Completo</label>
-										<input type="text" class="form-control" name="nome" maxlength="60" >
+										<label for="">Academia</label>
+										<input type="text" class="form-control" name="academia" maxlength="60" >
 									</div>
 									<div class="col-md-1"></div>
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Nascimento</label>
-										<input type="date" class="form-control" name="nascimento">
+										<label for="">Federação</label>
+										<input type="text" class="form-control" name="federacao">
 									</div>
 								</div>
-
-								<div class="row">
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">CPF</label>
-										<input type="text" class="cpf form-control" id="cpf" name="cpf">
-									</div>
-									<div class="col-md-1"></div>
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Sexo</label>
-										<br>
-										<select name="sexo" class="form-control">
-											<option value="">-</option>
-											<option value="masculino">Masculino</option>
-											<option value="feminino">Feminino</option>
-										</select>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Whatsapp</label>
-										<input type="text" class="celular form-control" id="celular" name="whatsapp" >
-									</div>
-									<div class="col-md-1"></div>
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">E-mail</label>
-										<input type="email" class="form-control" name="email" maxlength="60" >
-									</div>
-								</div>
-
+								<script src="<?base_url(); ?>public/js/teste.js"></script>
 								<div class="row">
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
 										<label for="">Endereço</label>
@@ -96,165 +76,61 @@
 									</div>
 								</div>
 
-								<script>
-									var base_url = "<?php echo base_url() ?>";
-
-									$(function(){
-									$('#estados').change(function(){
-										
-										$('#municipios').attr('disabled', 'disabled');
-										$('#municipios').html("<option>Carregando...</option>");
-										var uf_estado = $('#estados').val();
-										/*
-										* exibe alert do valor da variavel
-										*/
-										//alert(uf_estado);
-										$.post(base_url+'index.php/home/getMunicipios', {
-											uf_estado : uf_estado	
-										}, function(data){
-											/*
-											* exibe teste no console
-											*/
-											console.log(data);
-											$('#municipios').html(data);
-											$('#municipios').removeAttr('disabled');
-										});
-									});
-									});
-								</script>
-
 								<div class="row">
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group has-feedback">
 										<label>Estado</label>
-										<select class="form-control" id="estados" name="estado">
+										<select class="form-control" id="estados" name="estado" onchange="buscaCidade()">
 											<?php echo $options_estados; ?>
 										</select>
 									</div>
 									<div class="col-md-1"></div>
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group has-feedback">
 										<label>Cidade</label>
-										<select class="form-control" id="municipios" name="cidade" disabled>
-										
-										</select>
-										<div id="conteudo"></div>
+										<select class="form-control" id="municipios" name="cidade" disabled></select>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Academia</label>
-										<br>
-										<select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" name="academia">
-											<option value="">Selecione a Academia</option>
-											<!--
-											<?php foreach ($academia as $academias) : ?>
-												<option value="<?= $academias['academia']; ?>"><?= $academias['academia']; ?></option>
-											<?php endforeach ?>
-
-											<form action="" method="post">
-												<option value=""></option>
-											</form>
-											-->
-										</select>
+										<label for="">Telefone</label>
+										<input type="text" class="telefone form-control" id="telefone" name="telefone">
 									</div>
-									<!--
-									<div class="col-md-1">
-										<h2 class="head">
-											<a  data-toggle="modal" data-target="#addAcademia">
-												<i class="fas fa-plus-circle" style="color: red;" title="adicionar academia"></i><span style="margin-left: 10px; color: red;"></span>
-											</a>
-										</h2>
-									</div>
-									-->
 									<div class="col-md-1"></div>
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Professor</label>
-										<br>
-										<select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" name="professor">
-											<option value="">Selecione o Professor</option>
-											<!--
-											<?php foreach ($academia as $academias) : ?>
-												<option value="<?= $academias['responsavel']; ?>"><?= $academias['responsavel']; ?></option>
-											<?php endforeach ?>
-											-->
-										</select>
+										<label for="">E-mail</label>
+										<input type="email" class="form-control" name="email">
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Faixa</label>
-										<select class="selectpiker form-control" data-show-subtext="trye" data-live-search="true" name="faixa">
-											<option value="branca">Branca</option>
-											<option value="cinza">Cinza</option>
-											<option value="amarela">Amarela</option>
-											<option value="laranja">Laranja</option>
-											<option value="verde">Verde</option>
-											<option value="azul">Azul</option>
-											<option value="roxa">Roxa</option>
-											<option value="marrom">Marrom</option>
-											<option value="preta">Preta</option>
-											<option value="coral">Coral</option>
-										</select>
+										<label for="">Site</label>
+										<input type="text" class="form-control">
 									</div>
-
 									<div class="col-md-1"></div>
-									<script>
-										var base_url = "<?php echo base_url() ?>";
-
-										$(function(){
-											$('#teste').change(function(){
-												/*
-												$('#municipios').attr('disabled', 'disabled');
-												$('#municipios').html("<option>Carregando...</option>");
-												*/
-												var testePeso = $('#teste').val();
-												/*
-												* exibe alert do valor da variavel
-												*/
-												alert(testePeso);
-												/*
-												$.post(base_url+'index.php/home/getMunicipios', {
-													uf_estado : uf_estado	
-												}, function(data){
-													/*
-													* exibe teste no console
-													
-													console.log(data);
-													$('#municipios').html(data);
-													$('#municipios').removeAttr('disabled');
-												});
-												*/
-											});
-										});
-									</script>
 									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Peso</label>
-										<input type="text" class="peso form-control" id="teste" name="peso">
-									</div>
-								</div>
+									<label> Cartaz do Evento</label>
+                                <input type="file" name="cartaz" id="imagem" onchange="previewImagem()"><br><br>
+                                    <img name="visualizar" style="width: 200px; height: 200px;"><br><br>
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                                <script>
+                                    function previewImagem(){
+                                    var imagem = document.querySelector('input[name=cartaz]').files[0];
+                                    var preview = document.querySelector('img[name=visualizar]');
 
-								<div class="row">
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Usuario</label>
-										<input type="text" class="form-control" name="usuario" maxlength="60" >
-										<?php
-										if(isset($_SESSION['duplicado'])):
-											?>
-											<div class="notification is-danger">
-												<span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
-											</div>
-										<?php
-										endif;
-										unset($_SESSION['duplicado']);
-										?>
-									</div>
-
-									<div class="col-md-1"></div>
-
-									<div class="col-md-5 col-sm-6 col-xs-12 form-group">
-										<label for="">Senha</label>
-										<input type="password" class="form-control" name="senha" required="">
+                                    var reader = new FileReader();
+                              
+                                    reader.onloadend = function () {
+                                        preview.src = reader.result;
+                                    }
+                              
+                                    if(imagem){
+                                        reader.readAsDataURL(imagem);
+                                    }else{
+                                        preview.src = "";
+                                    }
+                                }
+                                </script>
 									</div>
 								</div>
 
@@ -269,6 +145,17 @@
 									</div>
 								</div>
 							</form>
+							<?php
+								endif;
+								unset($_SESSION["cadastro_academia"]);
+							?>
+							<?php if (isset($_SESSION["academia"])):
+							?>
+							<h1>teste</h1>
+							<?php
+								endif;
+								unset($_SESSION["academia"]);
+							?>
                       </div>
 
 					  <!--
@@ -280,7 +167,7 @@
     						<i class="img-intro icon-checkmark-circle"></i>
 						</div>
 						<h3 class="head text-center">Cadastro de Professor</h3>
-						  <form class="form-horizontal form-label-left input_mask" action="<?php echo site_url('home/addAcademia'); ?>" method="POST">
+						  <form class="form-horizontal form-label-left input_mask" action="<?php echo site_url("home/addAcademia"); ?>" method="POST">
 							  <div class="row">
 								  <div class="col-md-5 col-sm-6 col-xs-12 form-group">
 									  <label for="">Nome Completo</label>
@@ -327,24 +214,24 @@
 									var base_url = "<?php echo base_url() ?>";
 
 									$(function(){
-									$('#estadosProfessor').change(function(){
+									$("#estadosProfessor").change(function(){
 										
-										$('#municipiosProfessor').attr('disabled', 'disabled');
-										$('#municipiosProfessor').html("<option>Carregando...</option>");
-										var uf_estado = $('#estadosProfessor').val();
+										$("#municipiosProfessor").attr("disabled", "disabled");
+										$("#municipiosProfessor").html("<option>Carregando...</option>");
+										var uf_estado = $("#estadosProfessor").val();
 										/*
 										* exibe alert do valor da variavel
 										*/
 										//alert(uf_estado);
-										$.post(base_url+'index.php/home/getMunicipios', {
+										$.post(base_url+"index.php/home/getMunicipios", {
 											uf_estado : uf_estado	
 										}, function(data){
 											/*
 											* exibe teste no console
 											*/
 											console.log(data);
-											$('#municipiosProfessor').html(data);
-											$('#municipiosProfessor').removeAttr('disabled');
+											$("#municipiosProfessor").html(data);
+											$("#municipiosProfessor").removeAttr("disabled");
 										});
 									});
 									});
@@ -399,14 +286,14 @@
 									  <label for="">Usuario</label>
 									  <input type="text" class="form-control" name="usuario" maxlength="60" >
 									  <?php
-									  if(isset($_SESSION['duplicado'])):
+									  if(isset($_SESSION["duplicado"])):
 										  ?>
 										  <div class="notification is-danger">
 											  <span class="help-block" style="color: red;">ERRO: Usuário já cadastrado.</span>
 										  </div>
 									  <?php
 									  endif;
-									  unset($_SESSION['duplicado']);
+									  unset($_SESSION["duplicado"]);
 									  ?>
 								  </div>
 

@@ -6,10 +6,10 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->library('session');
+
 		}
 
-		public function index()
-		{
+		public function index(){
 			if ($this->session->userdata('idUsuario')) {
 				$this->load->view('usuarios/template/header');
 				$this->load->view('usuarios/home');
@@ -27,8 +27,7 @@
 			}
 		}
 
-		public function login()
-		{	
+		public function login(){
 			/*
 			if (!$this->input->is_ajax_request) {
 				exit('acesso negado');
@@ -55,7 +54,7 @@
 						$this->session->set_userdata("idUsuario", $idUsuario);
 						$this->session->set_userdata('usuario', $usuario);
 						$this->load->view('usuarios/template/header');
-						$this->load->view('home');
+						$this->load->view('index');
 						$this->load->view('template/footer');
 						$this->load->view('template/scripts');
 					}else {
@@ -79,7 +78,7 @@
 		public function logoff(){
 			$this->session->sess_destroy();
 			$this->load->view('template/header');
-			$this->load->view('login');
+			$this->load->view('usuarios/login');
 			$this->load->view('template/footer');
 			$this->load->view('template/scripts');
 		}
@@ -165,8 +164,7 @@
 			*/
 		}
 
-		public function minhaConta()
-		{
+		public function minhaConta(){
 			if ($this->session->userdata('idUsuario')) {
 				$idUsuario = $this->session->userdata('idUsuario');
                 $this->load->model('usuario_model');
@@ -229,6 +227,66 @@
 			$this->load->view('template/footer');
 			$this->load->view('template/scripts');
 		}
+
+		public function cidades(){
+			$this->load->view('cidades');
+		}
+
+		public function recuperar_senha(){
+			
+/*
+			$config = array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'smtp.gmail.com',
+				'smtp_port' => 587,
+				'smtp_user' => 'danielmoreiragomes.dmg@gmail.com',
+				'smtp_pass' => '30061995dm',
+				'mailtype' => 'html',
+				'charset' => 'utf-8',
+				'newline' => 'r\n',
+			);
+
+			$this->email->initialize($config);
+			$this->email->from("danielmoreiragomes.dmg@gmail.com", 'Meu E-mail');
+			$this->email->subject("Assunto do e-mail");
+			#$this->email->reply_to("email_de_resposta@dominio.com");
+			$this->email->to("danielmoreiragomes.dmg@hotmail.com"); 
+			#$this->email->cc('email_copia@dominio.com');
+			#$this->email->bcc('email_copia_oculta@dominio.com');
+			$this->email->message("Aqui vai a mensagem ao seu destinatário");
+			
+			if($this->email->send()){
+				echo 'email enviado';
+			}else{
+				echo 'falha';
+				show_error($this->email->print_debugger());
+			}
+
+*/
+		$this->load->library('email');
+
+		$config['protocol'] = 'smtp';
+		$config['smtp_host'] = 'smtp.gmail.com';
+		$config['smtp_port'] = 587;
+		$config['mailpath'] = '/usr/sbin/sendmail';
+		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+		
+		$this->email->initialize($config);
+		
+		$this->email->from('danielmoreiragomes.dmg@gmail.com', 'Your Name');
+		$this->email->to('danielmoreiragomes.dmg@hotmail.com');
+		$this->email->cc('danielmoreiragomes.dmg@gmail.com');
+		#$this->email->bcc('them@their-example.com');
+
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class.');
+
+		$this->email->send();
+		show_error($this->email->print_debugger());
+
+		}
+
 
 	}
 

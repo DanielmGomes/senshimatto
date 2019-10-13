@@ -1,22 +1,26 @@
 <?php
+
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     class Competicao extends CI_Controller {
     
         public function __construct(){
-            parent::__construct();
+
+			parent::__construct();
             $this->load->library('session');
 
         }
 
-        public function ajax_import_img()
-        {
+        public function ajax_import_img(){ # importa cartaz da competição
+
             if (!$this->input->is_ajax_request()) {
-                exit('Nenhum acesso ao script permitido');
-            }
+			
+				exit('Nenhum acesso ao script permitido');
+			
+			}
     
-            $config['upload_path'] = './tmp/';
-            $config['allowed_types'] = 'gif|png|jpg';
+            $config['upload_path'] = './tmp/'; # pasta de armazenamento temporario
+            $config['allowed_types'] = 'gif|png|jpg'; # formatos suportados de imagem
             $config['overwrite'] = TRUE;
     
             $this->load->library('upload', $config);
@@ -25,24 +29,32 @@
             $json['status'] = 1;
     
             if (!$this->upload->do_upload('image_file')) {
-                $json['status'] = 0;
+			
+				$json['status'] = 0;
                 $json['error'] = $this->upload->display_errors('','');
-            }else {
-                if ($this->upload->data()['file_size'] <= 1000000) {
-                    $file_name = $this->upload->data()['file_name'];
+			
+			}else {
+			
+				if ($this->upload->data()['file_size'] <= 1000000) { # tamanho maximo da imagem
+			
+					$file_name = $this->upload->data()['file_name'];
                     $json['img_path'] = base_url() . 'tmp/' . $file_name;
-                }else {
-                    $json['status'] = 0;
+			
+				}else { # caso erro no tamanho da imagem
+			
+					$json['status'] = 0;
                     $json['error'] = 'Imagem não pode ser maior que 5MB';
         
                 }
-            }
+			
+			}
     
             echo json_encode($json);
     
         }
 
         public function ajax_save_competicao(){
+
             $json = array();
             $json['status'] = 1;
             $json['error_list'] = array();
@@ -51,20 +63,28 @@
             $data = $this->input->post();
     
             if (empty($data['nomeEvento'])) {
+
                 $json['error_list']['#nomeEvento'] = 'Nome do Evento Obrigatorio';			
-            }else {
+			
+			}else {
+
                 if ($this->administrativo_model->is_duplicated('nomeEvento', $data['nomeEvento'], $data['idCompeticao'])) {
-                    $json['error_list']['#nomeEvento'] = 'Nome do Evento Já Existente';							
-                }
+
+					$json['error_list']['#nomeEvento'] = 'Nome do Evento Já Existente';				
+								
+				}
+				
             }
     
             if (!empty($data['cartaz'])) {
+
                 $file_name = basename($data['cartaz']);
                 $old_path = getcwd() . '/tmp/' . $file_name;
                 $new_path = getcwd() . '/public/images/competicoes/' . $file_name;
                 rename($old_path, $new_path);
     
-                $data['cartaz'] = '/public/images/competicoes/' . $file_name;
+				$data['cartaz'] = '/public/images/competicoes/' . $file_name;
+				
             }
     
             if (empty($data['idCompeticao'])) {

@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 
@@ -64,6 +65,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		var base_url = "<?php echo base_url() ?>";
+
+		$(function(){
+			$('#departamentos').change(function(){
+				
+				$('#produtos').attr('disabled', 'disabled');
+				$('#produtos').html("<option>Carregando...</option>");
+				var departamentos_id = $('#departamentos').val();
+				
+				$.post(base_url+'index.php/home/getProdutos', {
+					departamentos_id : departamentos_id	
+				}, function(data){
+					$('#produtos').html(data);
+					$('#produtos').removeAttr('disabled');
+				});
+			});
+		});
+
+	</script>
+
 </head>
 <body>
 
@@ -72,15 +97,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+	<p>
+			Escolha o Departamento:<br />
+			<select name="departamentos" id="departamentos">
+				<?php echo $options_departamentos; ?>
+			</select>
+		</p>
+		<p>
+			Escolha o Produto:<br />
+			<select name="produtos" id="produtos" disabled>
+				<option value="">Selecione o Departamento</option>
+			</select>
+		</p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>

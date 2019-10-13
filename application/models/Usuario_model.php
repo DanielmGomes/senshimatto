@@ -99,5 +99,14 @@
 			return $this->db->get()->num_rows() ;
 		}
 
+		public function recuperar_senha($email, $select = NULL){
+			if (!empty($select)) {
+				$this->db->select($select);
+			}
+			$this->db->from('usuario');
+			$this->db->where('email', $email);
+			return $this->db->get()->result_array();
+		}
+
 	}
 ?>

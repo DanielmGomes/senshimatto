@@ -57,7 +57,7 @@
 								<div class="tab-pane fade in active">
 									<h3 class="head text-center">Edital da Competição</h3>
 									<p class="narrow text-center">
-										Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+										Faça abaixo sua inscrição na competição ou verifique o edital.
 									</p>
 									<?php
 									if(isset($_SESSION['duplicado'])):
@@ -77,7 +77,7 @@
 									?>
 									<p class="text-center">
 										<a href="<?= site_url('competicao/dados_atleta'); ?>" class="btn btn-success btn-outline-rounded green"> Inscrever-se</a>
-										<a href="<?= base_url(); ?>public/edital/dummy.pdf" target="_blank" class="btn btn-danger btn-outline-rounded red"> Download Edital</a>
+										<a href="<?= base_url(); ?>public/edital/edital.pdf" target="_blank" class="btn btn-danger btn-outline-rounded red"> Download Edital</a>
 										<a href="<?= site_url('competicao/inscritos'); ?>" class="btn btn-danger btn-outline-rounded green"> Inscritos</a>
 									</p>
 								</div>
